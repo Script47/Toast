@@ -2,7 +2,7 @@
 
 * [About](#about)
 * [Usage](#usage)
-  * [Live Example](https://OliveEuphoricTriggers--five-nine.repl.co)
+  * [Live Example](https://stackoverflow.com/questions/52458430/boostrap-4-snackbar-toast/54767810#54767810)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
