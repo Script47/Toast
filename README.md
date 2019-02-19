@@ -1,5 +1,4 @@
-# Bootstrap 4 Toast
-A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
+# Toast - A bootstrap 4.2+ jQuery plugin
 
 * [About](#about)
 * [Usage](#usage)
