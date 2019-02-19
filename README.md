@@ -2,7 +2,7 @@
 
 * [About](#about)
 * [Usage](#usage)
-  * [Live Example](https://stackoverflow.com/questions/52458430/boostrap-4-snackbar-toast/54767810#54767810)
+  * [Live Example](https://jsfiddle.net/rw2Ljcsf/1/)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
