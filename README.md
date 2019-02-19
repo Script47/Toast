@@ -101,6 +101,7 @@ $(document).on('hidden.bs.toast', '.toast', function (e) {
 * Allow img in toast as is shown in the Bootstrap 4 documentation
 * Allow the option to prevent stacking
 * Allow the option to keep / remove from DOM
+* Custom styling (rounded toasts, blocky toasts, custom background colours)
 * Positioning of the actual toast
 
 ### Contributing
