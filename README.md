@@ -100,9 +100,9 @@ $(document).on('hidden.bs.toast', '.toast', function (e) {
 
 ### Roadmap
 
-* Allow img in toast as in shown in the Bootstrap 4 documentation
+* Allow img in toast as is shown in the Bootstrap 4 documentation
 * Allow the option to prevent stacking
-* Allow the open to keep / remove from DOM
+* Allow the option to keep / remove from DOM
 
 ### Contributing
 
