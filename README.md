@@ -10,21 +10,21 @@ A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
 
 ### About
 
-As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been inroduced and the aim of this plugin is to make it easier to use them.
+As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been inroduced and the aim of this plugin is to make them easier to use.
 
 ### Usage
 
-You can pass to `$.toast` an object with the settings for your toast and the settings are as follows:
+You can pass to the `$.toast` function an object with the settings for your toast which are as follows:
 
 | Parameter     |Description| Default | Values |
 | ------------- |-----------| -------  |---------
-| title         | Shows in the top left corner of the toast | 'Notice!'|        |
-| subtitle      | Shows in the top right corner of the toast| N/A      |        |
-| content       | Show in the toast body | N/A      |
+| title         | Shows in the top left corner of the toast header | 'Notice!'|        |
+| subtitle      | Shows in the top right corner of the toast header | N/A      |        |
+| content       | Shows in the toast body | N/A      |
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
 | delay         | Determines how the toast will show for | 3000
 
-**Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small toast which will be shown below in the examples.
+**Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples.
 
 ```javascript
 $.toast({
@@ -89,7 +89,7 @@ The toasts are stackable:
 
 ### Caveats
 
-* The toast will remain in the DOM when hidden, I am working out a way to incorperate removing them from the DOM or reusing existing ones if left in, however, for the time being, you can use the following to remove the toast once it is hidden from the DOM:
+* The toast will remain in the DOM when hidden, I am working on a way to incorperate removing them from the DOM or reusing existing ones if left in, however, for the time being, you can use the following to remove the toast once it is hidden from the DOM:
 
 ```javascript
 $(document).on('hidden.bs.toast', '.toast', function (e) {
