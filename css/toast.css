@@ -1,0 +1,16 @@
+#toast-container {
+    position: sticky;
+    z-index: 1055;
+    top: 0;
+}
+
+#toast-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+}
+
+.toast {
+    min-width: 150px;
+}
