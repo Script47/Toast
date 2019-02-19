@@ -52,7 +52,19 @@ The respective markdown for the above would be:
 </div>
 ```
 
-Now, onto the differnet types:
+To show a "snack" (a small version of the toast), simply omit the content property:
+
+```javascript
+$.toast({
+  title: 'A small bitesize snack, not a toast!',
+  type: 'info',
+  delay: 5000
+});
+```
+
+![Example Snack](https://i.gyazo.com/e707a35836553aa9dec96025eb332ac1.png)
+
+Now, onto the different types:
 
 ![Example #2](https://i.gyazo.com/20fbdf05b57af4a76e28f66047fe6591.png)
 
