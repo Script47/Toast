@@ -9,7 +9,7 @@ A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
 
 ### About
 
-As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been inroduced and the aim of this plugin was to make it easier to use them.
+As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been inroduced and the aim of this plugin is to make it easier to use them.
 
 ### Usage
 
