@@ -6,6 +6,7 @@ A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
   * [Live Example](https://OliveEuphoricTriggers--five-nine.repl.co)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
+* [Contributing](#contributing)
 
 
 ### About
@@ -102,3 +103,7 @@ $(document).on('hidden.bs.toast', '.toast', function (e) {
 * Allow img in toast as in shown in the Bootstrap 4 documentation
 * Allow the option to prevent stacking
 * Allow the open to keep / remove from DOM
+
+### Contributing
+
+I am not perfect and as such I am always looking for ways to improve my code so please make suggestions, forks and pull requests. Feel free to adapt this plugin freely (but please do not go ahead and sell this plugin, the point is that this should be free) and be sure to let me know so I can check out your changes. 
