@@ -3,7 +3,7 @@ A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
 
 * [About](#about)
 * [Usage](#usage)
- * [Live Example](https://OliveEuphoricTriggers--five-nine.repl.co)
+  * [Live Example](https://OliveEuphoricTriggers--five-nine.repl.co)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
 
