@@ -8,7 +8,6 @@ A jQuery plugin to make the usage of Bootstrap 4 toasts easy.
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 
-
 ### About
 
 As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been inroduced and the aim of this plugin is to make them easier to use.
