@@ -24,7 +24,7 @@ You can pass to the `$.toast` function an object with the settings for your toas
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
 | delay         | Determines how the toast will show for | 3000
 
-**Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples.
+**Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples. By default toasts will be positioned in the top right corner and will in the future (hopefully) have other position options.
 
 ```javascript
 $.toast({
