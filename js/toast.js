@@ -51,8 +51,15 @@
                 break;
         }
 
+        let delay_or_autohide = '';
+        if (delay === -1) {
+            delay_or_autohide = 'data-autohide="false"';
+        } else {
+            delay_or_autohide = 'data-delay="' + delay + '"';
+        }
+
         let html = '';
-        html += '<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="' + delay + '">';
+        html += '<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ' + delay_or_autohide + '>';
         html += '<div class="toast-header ' + bg_header_class + ' ' + fg_header_class + '">';
         html += '<strong class="mr-auto">' + title + '</strong>';
         html += '<small class="' + fg_subtitle + '">' + subtitle + '</small>';
