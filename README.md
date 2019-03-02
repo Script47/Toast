@@ -21,7 +21,7 @@ You can pass to the `$.toast` function an object with the settings for your toas
 | subtitle      | Shows in the top right corner of the toast header | N/A      |        |
 | content       | Shows in the toast body | N/A      |
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
-| delay         | Determines how the toast will show for.  Set to -1 to prevent the Toast from closing automatically | 3000
+| delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | -1 to disable auto close, or timeout value in milliseconds
 
 **Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples. By default toasts will be positioned in the top right corner and will in the future (hopefully) have other position options.
 

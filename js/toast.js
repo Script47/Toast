@@ -17,7 +17,7 @@
             subtitle = typeof opts === 'object' ? opts.subtitle || '' : arguments[1] || '',
             content = typeof opts === 'object' ? opts.content || '' : arguments[2] || '',
             type = typeof opts === 'object' ? opts.type || '' : arguments[3] || 'info',
-            delay = typeof opts === 'object' ? opts.delay || 3000 : arguments[4] || 3000;
+            delay = typeof opts === 'object' ? opts.delay || -1 : arguments[4] || -1;
 
         switch (type) {
             case 'info':
