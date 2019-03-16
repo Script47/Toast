@@ -21,7 +21,8 @@ You can pass to the `$.toast` function an object with the settings for your toas
 | subtitle      | Shows in the top right corner of the toast header | N/A      |        |
 | content       | Shows in the toast body | N/A      |
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
-| delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | -1 to disable auto close, or timeout value in milliseconds
+| delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | omit or set to -1 to disable auto close, or timeout value in milliseconds
+| img           | Shows an image before the title | N/A | { src: '', class: '', title: '', alt: '' }
 
 **Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples. By default toasts will be positioned in the top right corner and will in the future (hopefully) have other position options.
 
@@ -88,19 +89,19 @@ The toasts are stackable:
 
 ### Caveats
 
-* The toast will remain in the DOM when hidden, I am working on a way to incorperate removing them from the DOM or reusing existing ones if left in, however, for the time being, you can use the following to remove the toast once it is hidden from the DOM:
+* ~~The toast will remain in the DOM when hidden, I am working on a way to incorperate removing them from the DOM or reusing existing ones if left in, however, for the time being, you can use the following to remove the toast once it is hidden from the DOM:~~ - As of 2019-03-16, the toasts will be removed automatically from the DOM.
 
 ```javascript
-$(document).on('hidden.bs.toast', '.toast', function (e) {
-    $(this).remove();
+$('body').on('hidden.bs.toast', '.toast', function () {
+  $(this).remove();
 });
 ```
 
 ### Roadmap
 
-* Allow img in toast as is shown in the Bootstrap 4 documentation
+* ~~Allow img in toast as is shown in the Bootstrap 4 documentation~~ - 2019-03-16
 * Allow the option to prevent stacking
-* Allow the option to keep / remove from DOM
+* ~~Autoremove toast from DOM once hidden~~ - 2019-03-16
 * Custom styling (rounded toasts, blocky toasts, custom background colours)
 * Positioning of the actual toast
 
@@ -113,3 +114,5 @@ I am open to contributions and you could contribute in many ways:
 * Submit pull requests
 * Help by answering issues
 * Tell us if you are using the plugin and the project 
+
+The minifier that is used is: https://closure-compiler.appspot.com/home
