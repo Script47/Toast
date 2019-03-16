@@ -2,7 +2,7 @@
 
 * [About](#about)
 * [Usage](#usage)
-  * [Live Example](https://jsfiddle.net/rw2Ljcsf/1/)
+  * [Live Example](https://jsfiddle.net/j4dc86ky/)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
