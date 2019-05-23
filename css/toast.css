@@ -18,6 +18,7 @@
 
 #toast-container>#toast-wrapper>.toast {
     min-width: 150px;
+    background-color: rgba(255, 255, 255);
 }
 
 #toast-container>#toast-wrapper>.toast>.toast-header strong {
