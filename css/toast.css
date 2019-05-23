@@ -18,6 +18,7 @@
 
 #toast-container>#toast-wrapper>.toast {
     min-width: 150px;
+    border-top: none;
 }
 
 #toast-container>#toast-wrapper>.toast>.toast-header strong {
