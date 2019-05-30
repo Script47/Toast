@@ -1,7 +1,7 @@
 /**
  * @author Script47 (https://github.com/Script47/Toast)
  * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 0.7.0
+ * @version 0.7.1
  **/
 (function ($) {
     var TOAST_CONTAINER_HTML = '<div id="toast-container" aria-live="polite" aria-atomic="true"></div>';
