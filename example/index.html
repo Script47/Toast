@@ -15,6 +15,8 @@
     <body>
         <button class="btn-block btn-primary" onclick="show_random_toast();">Show Random Toast</button>
         <br>
+        <button class="btn-block btn-primary" onclick="show_random_toast(true);">Pause on Hover</button>
+        <br>
         <button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
         <br>
         <button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
@@ -43,7 +45,7 @@
                     'error': 'It all went wrong.'
                 };
 
-            function show_random_toast() {
+            function show_random_toast(pause_on_hover = false) {
                 let type = TYPES[Math.floor(Math.random() * TYPES.length)],
                     title = TITLES[type],
                     content = CONTENT[type];
@@ -53,6 +55,7 @@
                     subtitle: '11 mins ago',
                     content: content,
                     type: type,
+                    pause_on_hover: pause_on_hover,
                     delay: 5000
                 });
             }

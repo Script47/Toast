@@ -1,11 +1,11 @@
 /**
  * @author Script47 (https://github.com/Script47/Toast)
  * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 0.6.0
+ * @version 0.7.0
  **/
 (function ($) {
-    const TOAST_CONTAINER_HTML = '<div id="toast-container" aria-live="polite" aria-atomic="true"></div>';
-    const TOAST_WRAPPER_HTML = '<div id="toast-wrapper"></div>';
+    var TOAST_CONTAINER_HTML = '<div id="toast-container" aria-live="polite" aria-atomic="true"></div>';
+    var TOAST_WRAPPER_HTML = '<div id="toast-wrapper"></div>';
 
     $.toast = function (opts) {
         if (!$('#toast-container').length) {
@@ -17,7 +17,9 @@
             });
         }
 
-        let bg_header_class = '',
+        var id = 'toast-' + ($('.toast').length + 1),
+            html = '',
+            bg_header_class = '',
             fg_header_class = '',
             fg_subtitle_class = 'text-muted',
             fg_dismiss_class = '',
@@ -26,7 +28,10 @@
             content = opts.content || '',
             type = opts.type || 'info',
             delay = opts.delay || -1,
-            img = opts.img;
+            img = opts.img,
+            pause_on_hover = opts.pause_on_hover || false,
+            pause = false,
+            delay_or_autohide = '';
 
         switch (type) {
             case 'info':
@@ -60,15 +65,20 @@
                 break;
         }
 
-        let delay_or_autohide = '';
+        if (pause_on_hover !== false) {
+            var hide_timestamp = Math.floor(Date.now() / 1000) + (delay / 1000);
 
-        if (delay === -1) {
             delay_or_autohide = 'data-autohide="false"';
+            pause_on_hover = 'data-hide-timestamp="' + hide_timestamp + '"';
         } else {
-            delay_or_autohide = 'data-delay="' + delay + '"';
+            if (delay === -1) {
+                delay_or_autohide = 'data-autohide="false"';
+            } else {
+                delay_or_autohide = 'data-delay="' + delay + '"';
+            }
         }
 
-        let html = '<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ' + delay_or_autohide + '>';
+        html = '<div id="' + id + '" class="toast" role="alert" aria-live="assertive" aria-atomic="true" ' + delay_or_autohide + ' ' + pause_on_hover + '>';
         html += '<div class="toast-header ' + bg_header_class + ' ' + fg_header_class + '">';
 
         if (typeof img !== 'undefined') {
@@ -92,5 +102,28 @@
 
         $('#toast-wrapper').append(html);
         $('#toast-wrapper .toast:last').toast('show');
+
+        if (pause_on_hover !== false) {
+            setTimeout(function () {
+                if (!pause) {
+                    $('#' + id).toast('hide');
+                }
+            }, delay);
+
+            $(document).on('mouseover', '#' + id, function () {
+                pause = true;
+            });
+
+            $(document).on('mouseleave', '#' + id, function () {
+                var current = Math.floor(Date.now() / 1000),
+                    future = parseInt($(this).data('hide-timestamp'));
+
+                pause = false;
+
+                if (current >= future) {
+                    $(this).toast('hide');
+                }
+            });
+        }
     }
 }(jQuery));

@@ -2,7 +2,7 @@
 
 * [About](#about)
 * [Usage](#usage)
-  * [Live Example](https://jsfiddle.net/j4dc86ky/)
+  * [Live Example](https://jsfiddle.net/e4nyhsL6/)
 * [Caveats](#caveats)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -23,6 +23,7 @@ You can pass to the `$.toast` function an object with the settings for your toas
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
 | delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | omit or set to -1 to disable auto close, or timeout value in milliseconds
 | img           | Shows an image before the title | N/A | { src: '', class: '', title: '', alt: '' }
+| pause_on_hover| true/false respectively to pause on hover | false | true/false  |
 
 **Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples. By default toasts will be positioned in the top right corner and will in the future (hopefully) have other position options.
 
