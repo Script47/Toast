@@ -16,14 +16,15 @@ As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toast
 You can pass to the `$.toast` function an object with the settings for your toast which are as follows:
 
 | Parameter     |Description| Default | Values |
-| ------------- |-----------| -------  |---------
+| ------------- |-----------| -------  |---------|
 | title         | Shows in the top left corner of the toast header | 'Notice!'|        |
 | subtitle      | Shows in the top right corner of the toast header | N/A      |        |
-| content       | Shows in the toast body | N/A      |
-| type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error'
+| content       | Shows in the toast body | N/A      |        |
+| type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error' |
 | delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | omit or set to -1 to disable auto close, or timeout value in milliseconds
 | img           | Shows an image before the title | N/A | { src: '', class: '', title: '', alt: '' }
 | pause_on_hover| true/false respectively to pause on hover | false | true/false  |
+| container     | Set the container inside which the toasts will be displayed | $("body") | A JQuery selector |
 
 **Note:** If content is omitted, the toast will not have a `.toast-body` and can be used as a small snack which will be shown below in the examples. By default toasts will be positioned in the top right corner and will in the future (hopefully) have other position options.
 
