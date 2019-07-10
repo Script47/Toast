@@ -4,7 +4,7 @@ I am open to contributions and you could contribute in many ways:
   - Submit bug reports
   - Submit pull requests
   - Help by answering issues
-  - Tell us if you are using the plugin and the project
+  - Tell us if you are using the plugin in your project (it helps!)
 
 Just a few guidelines (for now):
 
