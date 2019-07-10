@@ -4,18 +4,25 @@
  * @version 0.7.1
  **/
 (function ($) {
-    var TOAST_CONTAINER_HTML = '<div id="toast-container" aria-live="polite" aria-atomic="true"></div>';
-    var TOAST_WRAPPER_HTML = '<div id="toast-wrapper"></div>';
+    var TOAST_CONTAINER_HTML = '<div class="toast-container" aria-live="polite" aria-atomic="true"></div>';
+    var TOAST_WRAPPER_HTML = '<div class="toast-wrapper"></div>';
 
     $.toast = function (opts) {
-        if (!$('#toast-container').length) {
-            $('body').prepend(TOAST_CONTAINER_HTML);
-            $('#toast-container').append(TOAST_WRAPPER_HTML);
+        // If container is not set in opts use body
+        var general_container = $('body');
+        if (opts.container && opts.container.length === 1)
+            general_container = opts.container;
 
-            $('body').on('hidden.bs.toast', '.toast', function () {
+        // if toast container and wrapper are not present in container create them
+        if (!general_container.children('.toast-container').length) {
+            general_container.prepend(TOAST_CONTAINER_HTML);
+            general_container.children('.toast-container').append(TOAST_WRAPPER_HTML);
+
+            general_container.on('hidden.bs.toast', '.toast', function () {
                 $(this).remove();
             });
         }
+        var toast_wrapper = general_container.children('.toast-container').children('.toast-wrapper');
 
         var id = 'toast-' + ($('.toast').length + 1),
             html = '',
@@ -100,8 +107,8 @@
 
         html += '</div>';
 
-        $('#toast-wrapper').append(html);
-        $('#toast-wrapper .toast:last').toast('show');
+        toast_wrapper.append(html);
+        toast_wrapper.find('.toast:last').toast('show');
 
         if (pause_on_hover !== false) {
             setTimeout(function () {

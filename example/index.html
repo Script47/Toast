@@ -20,6 +20,12 @@
         <button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
         <br>
         <button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
+        <br>
+        <button class="btn-block btn-primary" onclick="show_toast_in_container();">Show Toast in Container</button>
+
+        <div class="mt-5 bg-secondary vh-100" id="my_container">
+            <p>My container</p>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -88,6 +94,21 @@
                     title: content,
                     type: type,
                     delay: 5000
+                });
+            }
+
+            function show_toast_in_container() {
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                    title = TITLES[type],
+                    content = CONTENT[type];
+
+                $.toast({
+                    title: title,
+                    subtitle: '11 mins ago',
+                    content: content,
+                    type: type,
+                    delay: 5000,
+                    container: $("#my_container")
                 });
             }
         </script>
