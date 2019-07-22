@@ -39,6 +39,7 @@
             ico = opts.ico,
             pause_on_hover = opts.pause_on_hover || false,
             pause = false,
+            prepend = opts.prepend,
             delay_or_autohide = '';
 
         switch (type) {
@@ -154,8 +155,13 @@
 
         html += '</div>';
 
-        toast_wrapper.append(html);
-        toast_wrapper.find('.toast:last').toast('show');
+        if(prepend === true){
+            toast_wrapper.prepend(html);
+            toast_wrapper.find('.toast:first').toast('show');
+        } else {
+            toast_wrapper.append(html);
+            toast_wrapper.find('.toast:last').toast('show');
+        }
 
         if (pause_on_hover !== false) {
             setTimeout(function () {
