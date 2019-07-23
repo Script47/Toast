@@ -1,117 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../dist/toast.min.css ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/toast.min.css ">
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.9.0/js/all.min.js"></script>
 
-        <title>Toast</title>
+    <title>Toast</title>
     </head>
 
     <body>
-        <button class="btn-block btn-primary" onclick="show_random_toast();">Show Random Toast</button>
-        <br>
-        <button class="btn-block btn-primary" onclick="show_random_toast(true);">Pause on Hover</button>
-        <br>
-        <button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
-        <br>
-        <button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
-        <br>
-        <button class="btn-block btn-primary" onclick="show_toast_in_container();">Show Toast in Container</button>
+    <button class="btn-block btn-primary" onclick="show_random_toast();">Show Random Toast</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_random_toast(true);">Pause on Hover</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_ico_toast();">Show Icon Toast</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_prepend_toast();">Show Prepend Toast</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
+    <br>
+    <button class="btn-block btn-primary" onclick="show_toast_in_container();">Show Toast in Container</button>
 
-        <div class="mt-5 bg-secondary vh-100" id="my_container">
-            <p>My container</p>
-        </div>
+    <div class="mt-5 bg-secondary vh-100" id="my_container">
+        <p>My container</p>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="../dist/toast.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../dist/toast.min.js"></script>
 
-        <script>
-            $('body').tooltip({
-                selector: '[data-toggle="tooltip"]'
+    <script>
+        $('body').tooltip({
+            selector: '[data-toggle="tooltip"]'
+        });
+
+        const TYPES = ['info', 'warning', 'success', 'error', 'dark', 'white', 'transparent', 'light', 'primary', 'secondary'],
+            TITLES = {
+                'info': 'Notice!',
+                'success': 'Awesome!',
+                'warning': 'Watch Out!',
+                'error': 'Doh!',
+                'dark': 'Dark Title',
+                'white': 'White Title',
+                'transparent': 'Transparent title',
+                'light': 'Light Title',
+                'primary': 'Primary title',
+                'secondary': 'Secondary title'
+            },
+            CONTENT = {
+                'info': 'Hello, world! This is a toast message.',
+                'success': 'The action has been completed.',
+                'warning': 'It\'s all about to go wrong',
+                'error': 'It all went wrong.',
+                'dark': 'Dark Content',
+                'white': 'White content',
+                'transparent': 'Transparent content',
+                'light': 'Light content',
+                'primary': 'Primary content',
+                'secondary': 'Secondary content'
+            };
+
+        function show_random_toast(pause_on_hover = false) {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                title = TITLES[type],
+                content = CONTENT[type];
+
+            $.toast({
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                type: type,
+                pause_on_hover: pause_on_hover,
+                delay: 5000
             });
+        }
 
-            const TYPES = ['info', 'warning', 'success', 'error'],
-                TITLES = {
-                    'info': 'Notice!',
-                    'success': 'Awesome!',
-                    'warning': 'Watch Out!',
-                    'error': 'Doh!'
-                },
-                CONTENT = {
-                    'info': 'Hello, world! This is a toast message.',
-                    'success': 'The action has been completed.',
-                    'warning': 'It\'s all about to go wrong',
-                    'error': 'It all went wrong.'
-                };
+        function show_image_toast() {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                title = TITLES[type],
+                content = CONTENT[type];
 
-            function show_random_toast(pause_on_hover = false) {
-                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    title = TITLES[type],
-                    content = CONTENT[type];
+            $.toast({
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                type: type,
+                delay: 5000,
+                img: {
+                    src: 'https://via.placeholder.com/25',
+                    class: 'rounded',
+                    title: 'Thumbnail Title',
+                    alt: 'Alternative'
+                }
+            });
+        }
 
-                $.toast({
-                    title: title,
-                    subtitle: '11 mins ago',
-                    content: content,
-                    type: type,
-                    pause_on_hover: pause_on_hover,
-                    delay: 5000
-                });
-            }
+        function show_ico_toast() {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                title = TITLES[type],
+                content = CONTENT[type];
 
-            function show_image_toast() {
-                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    title = TITLES[type],
-                    content = CONTENT[type];
+            $.toast({
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                type: type,
+                delay: 5000,
+                ico: '<i class="fas fa-home"></i>'
+            });
+        }
 
-                $.toast({
-                    title: title,
-                    subtitle: '11 mins ago',
-                    content: content,
-                    type: type,
-                    delay: 5000,
-                    img: {
-                        src: 'https://via.placeholder.com/25',
-                        class: 'rounded',
-                        title: 'Thumbnail Title',
-                        alt: 'Alternative'
-                    }
-                });
-            }
+        function show_prepend_toast() {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                title = TITLES[type],
+                content = CONTENT[type];
 
-            function show_random_snack() {
-                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    content = CONTENT[type].replace('toast', 'snack');
+            $.toast({
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                type: type,
+                delay: 5000,
+                prepend: true,
+                ico: '<i class="fas fa-smoking"></i>'
+            });
+        }
 
-                $.toast({
-                    title: content,
-                    type: type,
-                    delay: 5000
-                });
-            }
+        function show_random_snack() {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                content = CONTENT[type].replace('toast', 'snack');
 
-            function show_toast_in_container() {
-                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    title = TITLES[type],
-                    content = CONTENT[type];
+            $.toast({
+                title: content,
+                type: type,
+                delay: 5000
+            });
+        }
 
-                $.toast({
-                    title: title,
-                    subtitle: '11 mins ago',
-                    content: content,
-                    type: type,
-                    delay: 5000,
-                    container: $("#my_container")
-                });
-            }
-        </script>
+        function show_toast_in_container() {
+            let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                title = TITLES[type],
+                content = CONTENT[type];
+
+            $.toast({
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                type: type,
+                delay: 5000,
+                container: $("#my_container")
+            });
+        }
+    </script>
     </body>
 
 </html>
