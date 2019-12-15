@@ -26,3 +26,8 @@
 .toast-container>.toast-wrapper>.toast>.toast-header strong {
     padding-right: 20px;
 }
+
+.toast-container > .toast-wrapper > .toast > .toast-header i {
+    padding-top:2px;
+    margin-right:7px;
+}
