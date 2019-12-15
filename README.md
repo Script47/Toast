@@ -23,6 +23,7 @@ You can pass to the `$.toast` function an object with the settings for your toas
 | type          | Determines the style of the toast based on Bootstrap styles | 'info'   | 'info', 'success', 'warning', 'error' |
 | delay         | Determines how long the Toast shoud be shown for.  The default, -1, will show the toast until the user clicks close. | -1 | omit or set to -1 to disable auto close, or timeout value in milliseconds
 | img           | Shows an image before the title | N/A | { src: '', class: '', title: '', alt: '' }
+| icon           | Shows an icon before title | N/A | A complete icon class of your own. Example "fas fa-user-secret", show secret user
 | pause_on_hover| true/false respectively to pause on hover | false | true/false  |
 | container     | Set the container inside which the toasts will be displayed | $("body") | A JQuery selector |
 
