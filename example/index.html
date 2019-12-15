@@ -19,6 +19,8 @@
         <br>
         <button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
         <br>
+        <button class="btn-block btn-primary" onclick="show_icon_toast();">Show Icon Toast</button>
+        <br>
         <button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
         <br>
         <button class="btn-block btn-primary" onclick="show_toast_in_container();">Show Toast in Container</button>
@@ -83,6 +85,21 @@
                         title: 'Thumbnail Title',
                         alt: 'Alternative'
                     }
+                });
+            }
+
+            function show_icon_toast() {
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)],
+                    title = TITLES[type],
+                    content = CONTENT[type];
+
+                $.toast({
+                    title: title,
+                    subtitle: '11 mins ago',
+                    content: content,
+                    type: type,
+                    delay: 5000,
+                    icon: 'fas fa-user-secret'
                 });
             }
 

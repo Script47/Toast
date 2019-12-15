@@ -36,6 +36,7 @@
             type = opts.type || 'info',
             delay = opts.delay || -1,
             img = opts.img,
+            icon = opts.icon,
             pause_on_hover = opts.pause_on_hover || false,
             pause = false,
             delay_or_autohide = '';
@@ -90,6 +91,10 @@
 
         if (typeof img !== 'undefined') {
             html += '<img src="' + img.src + '" class="' + (img.class || '') + ' mr-2" alt="' + (img.alt || 'Image') + '" ' + (typeof img.title !== 'undefined' ? 'data-toggle="tooltip" title="' + img.title + '"' : '') + '>';
+        }
+
+        if (typeof icon !== 'undefined') {
+            html += '<i class="' + (icon || '') + '" aria-hidden="true"></i>';
         }
 
         html += '<strong class="mr-auto">' + title + '</strong>';
