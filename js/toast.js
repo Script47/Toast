@@ -24,7 +24,14 @@
         }
         var toast_wrapper = general_container.children('.toast-container').children('.toast-wrapper');
 
-        var id = 'toast-' + ($('.toast').length + 1),
+        var newId = 1;
+	    var lastToast = $toast_wrapper.children(".toast:last");
+	    if (lastToast && lastToast.length > 0){
+	        var lastId = eval(lastToast[0].id.substring("toast-".length));
+	        newId = lastId + 1;
+	    }
+
+    	var id = 'toast-' + newId,
             html = '',
             bg_header_class = '',
             fg_header_class = '',
