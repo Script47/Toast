@@ -21,8 +21,17 @@
         "url": "https://github.com/Script47/Toast/issues"
     },
     "homepage": "https://github.com/Script47/Toast",
+    "scripts": {
+        "build": "@babel src -d build"
+    },
     "dependencies": {
+        "babel-preset-env": "^1.7.0",
         "bootstrap": ">=4.2.0",
         "jquery": ">=1.9.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.10.1",
+        "@babel/core": "^7.10.2",
+        "@babel/preset-env": "^7.10.2"
     }
 }
