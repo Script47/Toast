@@ -7,21 +7,142 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../dist/toast.min.css ">
+    <link rel="stylesheet" href="../src/css/toast.css ">
 
     <title>Toast</title>
 </head>
 
 <body>
-<button class="btn-block btn-primary" onclick="show_random_toast();">Show Random Toast</button>
-<br>
-<button class="btn-block btn-primary" onclick="show_random_toast(true);">Pause on Hover</button>
-<br>
-<button class="btn-block btn-primary" onclick="show_image_toast();">Show Image Toast</button>
-<br>
-<button class="btn-block btn-primary" onclick="show_random_snack();">Show Random Snack</button>
-<br>
-<button class="btn-block btn-primary" onclick="show_toast_in_container();">Show Toast in Container</button>
+<div class="jumbotron bg-primary text-white jumbotron-fluid">
+    <div class="container">
+        <h1 class="text-center display-4">Toast</h1>
+        <h3 class="text-center">A jQuery plugin for Bootstrap 4.2+</h3>
+    </div>
+</div>
+
+<div class="container-fluid text-center">
+    <button class="snack btn btn-primary">Snack</button>
+    <button class="toast-btn btn btn-primary">Toast</button>
+</div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac malesuada ipsum. Vestibulum in nunc sed erat
+    facilisis lacinia in vitae lacus. Curabitur ornare nulla non urna posuere cursus. Aliquam in molestie augue, ac
+    vehicula est. Pellentesque eget massa nibh. Nulla maximus quam laoreet finibus dictum. Aliquam pretium porta
+    malesuada. Cras pretium odio massa, non blandit ligula maximus at. Proin sollicitudin felis sollicitudin turpis
+    mattis ultricies.</p>
+
+<p>Donec rutrum, magna ut lacinia aliquam, dui justo consequat eros, non feugiat lectus ligula non lacus. Donec
+    consequat pharetra posuere. Pellentesque malesuada sodales erat bibendum condimentum. Ut porttitor dignissim semper.
+    Quisque sed urna venenatis, sollicitudin tellus vitae, ultricies justo. Suspendisse potenti. Donec in sapien
+    molestie, pharetra nisl sit amet, pulvinar erat. Donec ultricies mauris enim, non vehicula sapien malesuada eget.
+    Aliquam tristique accumsan magna, eget facilisis nulla convallis sed. Fusce malesuada ipsum sem, eget finibus arcu
+    euismod id. Mauris fringilla libero felis, vitae iaculis ante vehicula vitae. Pellentesque ullamcorper semper
+    vestibulum. In rutrum at sapien et tincidunt.</p>
+
+<p>Aliquam mauris arcu, euismod vel porta in, consequat in augue. Integer volutpat tincidunt arcu, et iaculis est
+    egestas in. Nam nibh neque, consequat quis dolor et, mollis viverra erat. Duis dapibus lacus et pharetra rutrum.
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tempor nibh sit amet eros
+    commodo tristique. Maecenas maximus nisi sit amet tempus venenatis.</p>
+
+<p>Mauris hendrerit neque eget sapien efficitur, ac hendrerit lorem ultrices. Praesent nec lorem ac tellus viverra
+    sollicitudin posuere in mauris. Cras vulputate arcu at ligula condimentum semper. Fusce erat justo, luctus non
+    interdum vitae, rhoncus sed lorem. Pellentesque et nisi vel felis finibus efficitur eu tristique ex. Aenean ac
+    lacinia lectus. Vestibulum augue ante, maximus at nisi vel, eleifend convallis nunc. Vivamus tempor arcu neque, non
+    auctor enim vehicula et. Integer viverra faucibus consectetur. Maecenas id vestibulum velit, a mollis nulla. Cras
+    vitae velit orci. Nunc volutpat urna quam, non aliquet nisl placerat ac.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
+    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
+    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
+    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
+    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
+    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
+    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
+
+<div class="container-fluid text-center">
+    <button class="snack btn btn-primary">Snack</button>
+    <button class="toast-btn btn btn-primary">Toast</button>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -41,20 +162,47 @@
             'success': 'The action has been completed.',
             'warning': 'It\'s all about to go wrong',
             'error': 'It all went wrong.'
-        };
+        },
+        POSITION = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
-    $.toastDefaults.dismissible = false;
+    $.toastDefaults.position = POSITION[Math.floor(Math.random() * POSITION.length)];
+    $.toastDefaults.dismissible = true;
     $.toastDefaults.stackable = true;
 
-    var type = TYPES[Math.floor(Math.random() * TYPES.length)],
-        title = TITLES[type],
-        content = CONTENT[type];
+    $('.snack').click(function () {
+        var type = TYPES[Math.floor(Math.random() * TYPES.length)],
+            content = CONTENT[type];
 
-    $.toast({
-        type: type,
-        title: title,
-        subtitle: '11 mins ago',
-        content: content
+        $.snack(type, content);
+    });
+
+    $('.toast-btn').click(function () {
+        var rng = Math.floor(Math.random() * 2) + 1,
+            type = TYPES[Math.floor(Math.random() * TYPES.length)],
+            title = TITLES[type],
+            content = CONTENT[type];
+
+        if (rng === 1) {
+            $.toast({
+                type: type,
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                delay: 5000
+            });
+        } else {
+            $.toast({
+                type: type,
+                title: title,
+                subtitle: '11 mins ago',
+                content: content,
+                delay: 5000,
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    alt: 'Image'
+                }
+            });
+        }
     });
 
     //

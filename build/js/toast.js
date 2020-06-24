@@ -6,11 +6,18 @@
  * @version 1.0.0
  **/
 (function ($) {
-  var TOAST_CONTAINER_HTML = "<div id=\"toast-container\" class=\"toast-container\" aria-live=\"polite\" aria-atomic=\"true\">\n            <div class=\"toast-wrapper\"></div>\n        </div>";
+  var TOAST_CONTAINER_HTML = "<div id=\"toast-container\" class=\"toast-container\" aria-live=\"polite\" aria-atomic=\"true\"></div>";
   $.toastDefaults = {
-    container: null,
+    position: 'top-right',
     dismissible: true,
-    stackable: true
+    stackable: true,
+    style: {
+      toast: '',
+      info: '',
+      success: '',
+      warning: '',
+      error: ''
+    }
   };
   var toastRunningCount = 1;
 
@@ -22,12 +29,13 @@
 
   function render(opts) {
     /** No container, create our own **/
-    if (!$.toastDefaults.container && !$('#toast-container').length) {
+    if (!$('#toast-container').length) {
+      var position = ['top-right', 'top-left', 'bottom-right', 'bottom-left'].includes($.toastDefaults.position) ? $.toastDefaults.position : 'top-right';
       $('body').prepend(TOAST_CONTAINER_HTML);
+      $('#toast-container').addClass(position);
     }
 
-    var toastContainer = $.toastDefaults.container || $('#toast-container');
-    var toastWrapper = toastContainer.find('.toast-wrapper');
+    var toastContainer = $('#toast-container');
     var html = '';
     var classes = {
       header: {
@@ -45,6 +53,7 @@
     var img = opts.img;
     var delayOrAutohide = opts.delay ? "data-delay=\"" + opts.delay + "\"" : "data-autohide=\"false\"";
     var dismissible = $.toastDefaults.dismissible;
+    var globalToastStyles = $.toastDefaults.style.toast;
 
     if (typeof opts.dismissible !== 'undefined') {
       dismissible = opts.dismissible;
@@ -52,29 +61,27 @@
 
     switch (type) {
       case 'info':
-        classes.header.bg = 'bg-info';
-        classes.header.fg = 'text-white';
+        classes.header.bg = $.toastDefaults.style.info || 'bg-info';
+        classes.header.fg = $.toastDefaults.style.info || 'text-white';
         break;
 
       case 'success':
-        classes.header.bg = 'bg-success';
-        classes.header.fg = 'text-white';
+        classes.header.bg = $.toastDefaults.style.success || 'bg-success';
+        classes.header.fg = $.toastDefaults.style.info || 'text-white';
         break;
 
       case 'warning':
-      case 'warn':
-        classes.header.bg = 'bg-warning';
-        classes.header.fg = 'text-white';
+        classes.header.bg = $.toastDefaults.style.warning || 'bg-warning';
+        classes.header.fg = $.toastDefaults.style.warning || 'text-white';
         break;
 
       case 'error':
-      case 'danger':
-        classes.header.bg = 'bg-danger';
-        classes.header.fg = 'text-white';
+        classes.header.bg = $.toastDefaults.style.error || 'bg-danger';
+        classes.header.fg = $.toastDefaults.style.error || 'text-white';
         break;
     }
 
-    html = "<div id=\"" + id + "\" class=\"toast\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" " + delayOrAutohide + ">";
+    html = "<div id=\"" + id + "\" class=\"toast " + globalToastStyles + "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" " + delayOrAutohide + ">";
     html += "<div class=\"toast-header " + classes.header.bg + " " + classes.header.fg + "\">";
 
     if (img) {
@@ -102,38 +109,28 @@
     toastRunningCount++;
 
     if (!$.toastDefaults.stackable) {
-      toastWrapper.find('.toast').each(function () {
-        $(this).toast('hide');
+      toastContainer.find('.toast').each(function () {
+        $(this).remove();
       });
-      toastWrapper.append(html);
-      /** If a toast is already present, delay displaying it to prevent display glitch **/
-
-      if (toastWrapper.find('.toast').length > 1) {
-        console.log('delay...');
-        setTimeout(function () {
-          return toastWrapper.find('.toast:last').toast('show');
-        }, 125);
-      } else {
-        toastWrapper.find('.toast:last').toast('show');
-      }
+      toastContainer.append(html);
+      toastContainer.find('.toast:last').toast('show');
     } else {
-      toastWrapper.append(html);
-      toastWrapper.find('.toast:last').toast('show');
+      toastContainer.append(html);
+      toastContainer.find('.toast:last').toast('show');
     }
   }
   /**
    * Show a snack
-   * @param title
    * @param type
+   * @param title
    * @param delay
    */
 
 
-  $.snack = function (title, type) {
-    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+  $.snack = function (type, title, delay) {
     return render({
-      title: title,
       type: type,
+      title: title,
       delay: delay
     });
   };

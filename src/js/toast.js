@@ -4,14 +4,19 @@
  * @version 1.0.0
  **/
 (function ($) {
-    const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true">
-            <div class="toast-wrapper"></div>
-        </div>`;
+    const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>`;
 
     $.toastDefaults = {
-        container: null,
+        position: 'top-right',
         dismissible: true,
-        stackable: true
+        stackable: true,
+        style: {
+            toast: '',
+            info: '',
+            success: '',
+            warning: '',
+            error: '',
+        }
     };
 
     let toastRunningCount = 1;
@@ -24,12 +29,14 @@
 
     function render(opts) {
         /** No container, create our own **/
-        if (!$.toastDefaults.container && !$('#toast-container').length) {
+        if (!$('#toast-container').length) {
+            const position = ['top-right', 'top-left', 'bottom-right', 'bottom-left'].includes($.toastDefaults.position) ? $.toastDefaults.position : 'top-right';
+
             $('body').prepend(TOAST_CONTAINER_HTML);
+            $('#toast-container').addClass(position);
         }
 
-        let toastContainer = $.toastDefaults.container || $('#toast-container');
-        let toastWrapper = toastContainer.find('.toast-wrapper');
+        let toastContainer = $('#toast-container');
         let html = '';
         let classes = {
             header: {
@@ -47,6 +54,7 @@
         let img = opts.img;
         let delayOrAutohide = opts.delay ? `data-delay="${opts.delay}"` : `data-autohide="false"`;
         let dismissible = $.toastDefaults.dismissible;
+        let globalToastStyles = $.toastDefaults.style.toast;
 
         if (typeof opts.dismissible !== 'undefined') {
             dismissible = opts.dismissible;
@@ -54,29 +62,27 @@
 
         switch (type) {
             case 'info':
-                classes.header.bg = 'bg-info';
-                classes.header.fg = 'text-white';
+                classes.header.bg = $.toastDefaults.style.info || 'bg-info';
+                classes.header.fg = $.toastDefaults.style.info || 'text-white';
                 break;
 
             case 'success':
-                classes.header.bg = 'bg-success';
-                classes.header.fg = 'text-white';
+                classes.header.bg = $.toastDefaults.style.success || 'bg-success';
+                classes.header.fg = $.toastDefaults.style.info || 'text-white';
                 break;
 
             case 'warning':
-            case 'warn':
-                classes.header.bg = 'bg-warning';
-                classes.header.fg = 'text-white';
+                classes.header.bg = $.toastDefaults.style.warning || 'bg-warning';
+                classes.header.fg = $.toastDefaults.style.warning || 'text-white';
                 break;
 
             case 'error':
-            case 'danger':
-                classes.header.bg = 'bg-danger';
-                classes.header.fg = 'text-white';
+                classes.header.bg = $.toastDefaults.style.error || 'bg-danger';
+                classes.header.fg = $.toastDefaults.style.error || 'text-white';
                 break;
         }
 
-        html = `<div id="${id}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" ${delayOrAutohide}>`;
+        html = `<div id="${id}" class="toast ${globalToastStyles}" role="alert" aria-live="assertive" aria-atomic="true" ${delayOrAutohide}>`;
         html += `<div class="toast-header ${classes.header.bg} ${classes.header.fg}">`;
 
         if (img) {
@@ -110,36 +116,28 @@
         toastRunningCount++;
 
         if (!$.toastDefaults.stackable) {
-            toastWrapper.find('.toast').each(function () {
-                $(this).toast('hide');
+            toastContainer.find('.toast').each(function () {
+                $(this).remove();
             });
 
-            toastWrapper.append(html);
-
-            /** If a toast is already present, delay displaying it to prevent display glitch **/
-            if (toastWrapper.find('.toast').length > 1) {
-                console.log('delay...');
-
-                setTimeout(() => toastWrapper.find('.toast:last').toast('show'), 125);
-            } else {
-                toastWrapper.find('.toast:last').toast('show');
-            }
+            toastContainer.append(html);
+            toastContainer.find('.toast:last').toast('show');
         } else {
-            toastWrapper.append(html);
-            toastWrapper.find('.toast:last').toast('show');
+            toastContainer.append(html);
+            toastContainer.find('.toast:last').toast('show');
         }
     }
 
     /**
      * Show a snack
-     * @param title
      * @param type
+     * @param title
      * @param delay
      */
-    $.snack = function (title, type, delay) {
+    $.snack = function (type, title, delay) {
         return render({
-            title,
             type,
+            title,
             delay
         });
     }
