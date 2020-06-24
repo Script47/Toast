@@ -10,7 +10,7 @@ As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toast
 
 ### Usage
 
-### Gloabls
+#### Gloabls
 
 Modify the global variables to apply specific rules/styles to all your toasts.
 
@@ -41,7 +41,7 @@ $.snack(type, title, delay)
 
 **Note:** The final argument `delay` is omitable. If omitted, the toast will remain forever.
 
-### Toast
+#### Toast
 
 ```javascript
 $.toast({
