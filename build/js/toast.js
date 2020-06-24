@@ -11,6 +11,7 @@
     position: 'top-right',
     dismissible: true,
     stackable: true,
+    pauseDelayOnHover: true,
     style: {
       toast: '',
       info: '',
@@ -19,13 +20,10 @@
       error: ''
     }
   };
+  $('body').on('hidden.bs.toast', '.toast', function () {
+    $(this).remove();
+  });
   var toastRunningCount = 1;
-
-  function handleEvents() {
-    $('body').on('hidden.bs.toast', '.toast', function () {
-      $(this).remove();
-    });
-  }
 
   function render(opts) {
     /** No container, create our own **/
@@ -52,8 +50,10 @@
     var content = opts.content;
     var img = opts.img;
     var delayOrAutohide = opts.delay ? "data-delay=\"" + opts.delay + "\"" : "data-autohide=\"false\"";
+    var hideAfter = "";
     var dismissible = $.toastDefaults.dismissible;
     var globalToastStyles = $.toastDefaults.style.toast;
+    var paused = false;
 
     if (typeof opts.dismissible !== 'undefined') {
       dismissible = opts.dismissible;
@@ -81,7 +81,12 @@
         break;
     }
 
-    html = "<div id=\"" + id + "\" class=\"toast " + globalToastStyles + "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" " + delayOrAutohide + ">";
+    if ($.toastDefaults.pauseDelayOnHover && opts.delay) {
+      delayOrAutohide = "data-autohide=\"false\"";
+      hideAfter = "data-hide-after=\"" + (Math.floor(Date.now() / 1000) + opts.delay / 1000) + "\"";
+    }
+
+    html = "<div id=\"" + id + "\" class=\"toast " + globalToastStyles + "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" " + delayOrAutohide + " " + hideAfter + ">";
     html += "<div class=\"toast-header " + classes.header.bg + " " + classes.header.fg + "\">";
 
     if (img) {
@@ -105,8 +110,6 @@
     }
 
     html += "</div>";
-    handleEvents(toastContainer);
-    toastRunningCount++;
 
     if (!$.toastDefaults.stackable) {
       toastContainer.find('.toast').each(function () {
@@ -118,6 +121,28 @@
       toastContainer.append(html);
       toastContainer.find('.toast:last').toast('show');
     }
+
+    if ($.toastDefaults.pauseDelayOnHover) {
+      setTimeout(function () {
+        if (!paused) {
+          $("#" + id).toast('hide');
+        }
+      }, opts.delay);
+      $('body').on('mouseover', "#" + id, function () {
+        paused = true;
+      });
+      $(document).on('mouseleave', '#' + id, function () {
+        var current = Math.floor(Date.now() / 1000),
+            future = parseInt($(this).data('hideAfter'));
+        paused = false;
+
+        if (current >= future) {
+          $(this).toast('hide');
+        }
+      });
+    }
+
+    toastRunningCount++;
   }
   /**
    * Show a snack

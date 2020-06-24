@@ -10,6 +10,7 @@
         position: 'top-right',
         dismissible: true,
         stackable: true,
+        pauseDelayOnHover: true,
         style: {
             toast: '',
             info: '',
@@ -19,13 +20,11 @@
         }
     };
 
-    let toastRunningCount = 1;
+    $('body').on('hidden.bs.toast', '.toast', function () {
+        $(this).remove();
+    });
 
-    function handleEvents() {
-        $('body').on('hidden.bs.toast', '.toast', function () {
-            $(this).remove();
-        });
-    }
+    let toastRunningCount = 1;
 
     function render(opts) {
         /** No container, create our own **/
@@ -53,8 +52,10 @@
         let content = opts.content;
         let img = opts.img;
         let delayOrAutohide = opts.delay ? `data-delay="${opts.delay}"` : `data-autohide="false"`;
+        let hideAfter = ``;
         let dismissible = $.toastDefaults.dismissible;
         let globalToastStyles = $.toastDefaults.style.toast;
+        let paused = false;
 
         if (typeof opts.dismissible !== 'undefined') {
             dismissible = opts.dismissible;
@@ -82,7 +83,12 @@
                 break;
         }
 
-        html = `<div id="${id}" class="toast ${globalToastStyles}" role="alert" aria-live="assertive" aria-atomic="true" ${delayOrAutohide}>`;
+        if ($.toastDefaults.pauseDelayOnHover && opts.delay) {
+            delayOrAutohide = `data-autohide="false"`;
+            hideAfter = `data-hide-after="${Math.floor(Date.now() / 1000) + (opts.delay / 1000)}"`;
+        }
+
+        html = `<div id="${id}" class="toast ${globalToastStyles}" role="alert" aria-live="assertive" aria-atomic="true" ${delayOrAutohide} ${hideAfter}>`;
         html += `<div class="toast-header ${classes.header.bg} ${classes.header.fg}">`;
 
         if (img) {
@@ -111,10 +117,6 @@
 
         html += `</div>`;
 
-        handleEvents(toastContainer);
-
-        toastRunningCount++;
-
         if (!$.toastDefaults.stackable) {
             toastContainer.find('.toast').each(function () {
                 $(this).remove();
@@ -126,6 +128,31 @@
             toastContainer.append(html);
             toastContainer.find('.toast:last').toast('show');
         }
+
+        if ($.toastDefaults.pauseDelayOnHover) {
+            setTimeout(function () {
+                if (!paused) {
+                    $(`#${id}`).toast('hide');
+                }
+            }, opts.delay);
+
+            $('body').on('mouseover', `#${id}`, function () {
+                paused = true;
+            });
+
+            $(document).on('mouseleave', '#' + id, function () {
+                const current = Math.floor(Date.now() / 1000),
+                    future = parseInt($(this).data('hideAfter'));
+
+                paused = false;
+
+                if (current >= future) {
+                    $(this).toast('hide');
+                }
+            });
+        }
+
+        toastRunningCount++;
     }
 
     /**

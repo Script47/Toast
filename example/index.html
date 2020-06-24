@@ -168,6 +168,7 @@
     $.toastDefaults.position = POSITION[Math.floor(Math.random() * POSITION.length)];
     $.toastDefaults.dismissible = true;
     $.toastDefaults.stackable = true;
+    $.toastDefaults.pauseDelayOnHover = true;
 
     $('.snack').click(function () {
         var type = TYPES[Math.floor(Math.random() * TYPES.length)],
