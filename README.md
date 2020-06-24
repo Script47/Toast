@@ -2,6 +2,7 @@
 
 * [About](#about)
 * [Usage](#usage)
+    * [Live Example](https://jsfiddle.net/47n5ygth/)
 * [Contributing](#contributing)
 
 ### About
