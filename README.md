@@ -10,7 +10,7 @@ As of Bootstrap 4.2, [toasts](https://getbootstrap.com/docs/4.2/components/toast
 
 ### Usage
 
-###Gloabls
+### Gloabls
 
 Modify the global variables to apply specific rules/styles to all your toasts.
 
