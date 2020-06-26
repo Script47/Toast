@@ -17,7 +17,7 @@ Modify the global variables to apply specific rules/styles to all your toasts.
 
 ```javascript
 $.toastDefaults = {
-    position: 'top-right', /** top-left/top-right/bottom-left/bottom-right - Where the toast will show up **/
+    position: 'top-right', /** top-left/top-right/top-center/bottom-left/bottom-right/bottom-center - Where the toast will show up **/
     dismissible: true, /** true/false - If you want to show the button to dismiss the toast manually **/
     stackable: true, /** true/false - If you want the toasts to be stackable **/
     pauseDelayOnHover: true, /** true/false - If you want to pause the delay of toast when hovering over the toast **/

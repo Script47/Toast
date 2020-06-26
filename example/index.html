@@ -163,9 +163,9 @@
             'warning': 'It\'s all about to go wrong',
             'error': 'It all went wrong.'
         },
-        POSITION = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
+        POSITION = ['top-right', 'top-left', 'top-center', 'bottom-right', 'bottom-left', 'bottom-center'];
 
-    $.toastDefaults.position = POSITION[Math.floor(Math.random() * POSITION.length)];
+    $.toastDefaults.position = 'bottom-center';
     $.toastDefaults.dismissible = true;
     $.toastDefaults.stackable = true;
     $.toastDefaults.pauseDelayOnHover = true;

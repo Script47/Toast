@@ -1,6 +1,6 @@
 {
     "name": "bs4-toast",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Toast - A Bootstrap 4.2+ jQuery plugin for the toast component",
     "main": "dist/toast.min.js",
     "repository": {
