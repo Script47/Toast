@@ -1,7 +1,7 @@
 /**
  * @author Script47 (https://github.com/Script47/Toast)
  * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 1.0.0
+ * @version 1.1.0
  **/
 (function ($) {
     const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>`;
@@ -29,7 +29,7 @@
     function render(opts) {
         /** No container, create our own **/
         if (!$('#toast-container').length) {
-            const position = ['top-right', 'top-left', 'bottom-right', 'bottom-left'].includes($.toastDefaults.position) ? $.toastDefaults.position : 'top-right';
+            const position = ['top-right', 'top-left', 'top-center', 'bottom-right', 'bottom-left', 'bottom-center'].includes($.toastDefaults.position) ? $.toastDefaults.position : 'top-right';
 
             $('body').prepend(TOAST_CONTAINER_HTML);
             $('#toast-container').addClass(position);
