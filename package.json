@@ -1,6 +1,6 @@
 {
     "name": "bs4-toast",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Toast - A Bootstrap 4.2+ jQuery plugin for the toast component",
     "main": "dist/toast.min.js",
     "repository": {
@@ -22,16 +22,11 @@
     },
     "homepage": "https://github.com/Script47/Toast",
     "scripts": {
-        "build": "@babel src -d build"
+        "build": "webpack"
     },
     "dependencies": {
         "bootstrap": ">=4.2.0",
         "jquery": ">=1.9.1"
     },
-    "devDependencies": {
-        "@babel/cli": "^7.10.1",
-        "@babel/core": "^7.10.2",
-        "@babel/preset-env": "^7.10.2",
-        "babel-preset-env": "^1.7.0"
-    }
+    "devDependencies": {}
 }
