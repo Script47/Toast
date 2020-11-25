@@ -1,7 +1,7 @@
 /**
  * @author Script47 (https://github.com/Script47/Toast)
  * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 1.1.0
+ * @version 1.2.0
  **/
 (function ($) {
     const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>`;
@@ -45,7 +45,7 @@
             subtitle: 'text-white',
             dismiss: 'text-white'
         };
-        let id = `toast-${toastRunningCount}`;
+        let id = opts.id || `toast-${toastRunningCount}`;
         let type = opts.type;
         let title = opts.title;
         let subtitle = opts.subtitle;
