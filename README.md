@@ -1,4 +1,4 @@
-# Toast - A Bootstrap 4.2+ jQuery plugin
+# Toast - A Bootstrap 5.0(originally 4.2+) jQuery plugin
 
 * [About](#about)
 * [Usage](#usage)
