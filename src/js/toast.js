@@ -22,7 +22,7 @@
             primary: "",
             secondary: "",
             light: "",
-            dark: ""
+            dark: "",
         },
     };
 
@@ -39,15 +39,15 @@
         if (!$("#toast-container").length) {
             // if not exists
             const position = [
-                    "top-right",
-                    "top-left",
-                    "top-center",
-                    "bottom-right",
-                    "bottom-left",
-                    "bottom-center",
-                ].includes($.toastDefaults.position) ?
-                $.toastDefaults.position :
-                "top-right";
+                "top-right",
+                "top-left",
+                "top-center",
+                "bottom-right",
+                "bottom-left",
+                "bottom-center",
+            ].includes($.toastDefaults.position)
+                ? $.toastDefaults.position
+                : "top-right";
 
             $("body").prepend(TOAST_CONTAINER_HTML);
             $("#toast-container").addClass(position);
@@ -73,9 +73,9 @@
         let content = opts.content;
         let img = opts.img;
         let icon = opts.icon;
-        let delayOrAutohide = opts.delay ?
-            `data-bs-delay="${opts.delay}"` :
-            `data-bs-autohide="false"`;
+        let delayOrAutohide = opts.delay
+            ? `data-bs-delay="${opts.delay}"`
+            : `data-bs-autohide="false"`;
         let hideAfter = ``;
         let dismissible = $.toastDefaults.dismissible;
         let globalToastStyles = $.toastDefaults.style.toast;
@@ -132,32 +132,35 @@
                 break;
         }
 
+        // check delay options
         if ($.toastDefaults.pauseDelayOnHover && opts.delay) {
-            delayOrAutohide = `data-autohide="false"`;
+            delayOrAutohide = `data-bs-autohide="false"`;
             hideAfter = `data-hide-after="${
                 Math.floor(Date.now() / 1000) + opts.delay / 1000
             }"`;
         }
 
+        // prepare html
         html = `<div id="${id}" class="toast ${globalToastStyles}" role="alert" aria-live="assertive" aria-atomic="true" ${delayOrAutohide} ${hideAfter}>`;
         html += `<div class="toast-header ${classes.header.bg} ${classes.header.fg}">`;
 
         if (img) {
-            html += `<img src="${img.src}" class="mr-2 ${
+            html += `<img src="${img.src}" class="rounded me-2 ${
                 img.class || ""
-            }" alt="${img.alt || "Image"}">`;
+            }" alt="${img.alt || "Toast Image"}">`;
         }
 
-        html += `<strong class="mr-auto">${title}</strong>`;
+        if (icon) {
+            html += `<i class="${icon} mr-2"></i>&nbsp;`;
+        }
+        html += `<strong class="me-auto">${title}</strong>`;
 
         if (subtitle) {
             html += `<small class="${classes.subtitle}">${subtitle}</small>`;
         }
 
         if (dismissible) {
-            html += `<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true" class="${classes.dismiss}">&times;</span>
-                    </button>`;
+            html += `<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>`;
         }
 
         html += `</div>`;
@@ -170,6 +173,7 @@
 
         html += `</div>`;
 
+        // check stackable option
         if (!$.toastDefaults.stackable) {
             toastContainer.find(".toast").each(() => {
                 $(this).remove();
@@ -182,6 +186,7 @@
             toastContainer.find(".toast:last").toast("show");
         }
 
+        // hover delay action
         if ($.toastDefaults.pauseDelayOnHover) {
             setTimeout(() => {
                 if (!paused) {
@@ -213,20 +218,15 @@
      * @param opts
      */
     $.toastInit = function (opts) {
-        const {
-            position,
-            dismissible,
-            stackable,
-            pauseDelayOnHover
-        } = opts;
+        const { position, dismissible, stackable, pauseDelayOnHover } = opts;
 
         // set values
-        $.toastDefaults.position = position ? ? $.toastDefaults.position;
+        $.toastDefaults.position = position ?? $.toastDefaults.position;
         $.toastDefaults.dismissible =
-            dismissible ? ? $.toastDefaults.dismissible;
-        $.toastDefaults.stackable = stackable ? ? $.toastDefaults.stackable;
+            dismissible ?? $.toastDefaults.dismissible;
+        $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
         $.toastDefaults.pauseDelayOnHover =
-            pauseDelayOnHover ? ? $.toastDefaults.pauseDelayOnHover;
+            pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
     };
 
     /**
