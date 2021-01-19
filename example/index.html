@@ -93,18 +93,18 @@
             $.toastDefaults.stackable = true;
             $.toastDefaults.pauseDelayOnHover = true;
 
-            $('.snack').click(function () {
-                var type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    content = CONTENT[type];
+            $('.snack-btn').click(() => {
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)];
+                let content = CONTENT[type];
 
-                $.snack(type, content);
+                $.snack(type, content, 5000);
             });
 
-            $('.toast-btn').click(function () {
-                var rng = Math.floor(Math.random() * 2) + 1,
-                    type = TYPES[Math.floor(Math.random() * TYPES.length)],
-                    title = TITLES[type],
-                    content = CONTENT[type];
+            $('.toast-btn').click(() => {
+                let rng = Math.floor(Math.random() * 2) + 1;
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)];
+                let title = TITLES[type];
+                let content = CONTENT[type];
 
                 if (rng === 1) {
                     $.toast({
@@ -122,7 +122,7 @@
                         content: content,
                         delay: 5000,
                         img: {
-                            src: 'https://via.placeholder.com/20',
+                            src: IMG_URL,
                             alt: 'Image'
                         }
                     });
