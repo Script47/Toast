@@ -1,7 +1,8 @@
 /**
- * @author Script47 (https://github.com/Script47/Toast)
- * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 1.2.0
+ * @origin author Script47 (https://github.com/Script47/Toast)
+ * @author SoyaNyan (https://github.com/SoyaNyan/Toast)
+ * @description Toast - A Bootstrap 5.0 jQuery plugin for the toast component
+ * @version 2.0.0
  **/
 (function ($) {
     const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>`;
@@ -20,7 +21,7 @@
         }
     };
 
-    $('body').on('hidden.bs.toast', '.toast', function () {
+    $('body').on('hidden.bs.toast', '.toast', () => {
         $(this).remove();
     });
 
@@ -118,7 +119,7 @@
         html += `</div>`;
 
         if (!$.toastDefaults.stackable) {
-            toastContainer.find('.toast').each(function () {
+            toastContainer.find('.toast').each(() => {
                 $(this).remove();
             });
 
@@ -130,17 +131,17 @@
         }
 
         if ($.toastDefaults.pauseDelayOnHover) {
-            setTimeout(function () {
+            setTimeout(() => {
                 if (!paused) {
                     $(`#${id}`).toast('hide');
                 }
             }, opts.delay);
 
-            $('body').on('mouseover', `#${id}`, function () {
+            $('body').on('mouseover', `#${id}`, () => {
                 paused = true;
             });
 
-            $(document).on('mouseleave', '#' + id, function () {
+            $(document).on('mouseleave', '#' + id, () => {
                 const current = Math.floor(Date.now() / 1000),
                     future = parseInt($(this).data('hideAfter'));
 
