@@ -1,7 +1,8 @@
 /**
- * @author Script47 (https://github.com/Script47/Toast)
- * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component
- * @version 1.2.0
+ * @origin author Script47 (https://github.com/Script47/Toast)
+ * @author SoyaNyan (https://github.com/SoyaNyan/Toast)
+ * @description Toast - A Bootstrap 5.0 jQuery plugin for the toast component
+ * @version 2.0.0
  **/
 .toast-container {
     position: fixed;
@@ -41,20 +42,20 @@
     left: 50%;
 }
 
-.toast-container > .toast {
+.toast-container>.toast {
     min-width: 150px;
     background: transparent;
     border: none;
 }
 
-.toast-container > .toast > .toast-header {
+.toast-container>.toast>.toast-header {
     border: none;
 }
 
-.toast-container > .toast > .toast-header strong {
+.toast-container>.toast>.toast-header strong {
     padding-right: 20px;
 }
 
-.toast-container > .toast > .toast-body {
+.toast-container>.toast>.toast-body {
     background: white;
 }
