@@ -37,6 +37,7 @@
     function render(opts) {
         /** No container, create our own **/
         if (!$("#toast-container").length) {
+            // if not exists
             const position = [
                     "top-right",
                     "top-left",
@@ -52,9 +53,9 @@
             $("#toast-container").addClass(position);
         }
 
-        let toastContainer = $("#toast-container");
-        let html = "";
-        let classes = {
+        // template options
+        const toastContainer = $("#toast-container");
+        const classes = {
             header: {
                 fg: "",
                 bg: "",
@@ -62,15 +63,19 @@
             subtitle: "text-white",
             dismiss: "text-white",
         };
+        let html = "";
+
+        // toast options
         let id = opts.id || `toast-${toastRunningCount}`;
         let type = opts.type;
         let title = opts.title;
         let subtitle = opts.subtitle;
         let content = opts.content;
         let img = opts.img;
+        let icon = opts.icon;
         let delayOrAutohide = opts.delay ?
-            `data-delay="${opts.delay}"` :
-            `data-autohide="false"`;
+            `data-bs-delay="${opts.delay}"` :
+            `data-bs-autohide="false"`;
         let hideAfter = ``;
         let dismissible = $.toastDefaults.dismissible;
         let globalToastStyles = $.toastDefaults.style.toast;
@@ -80,6 +85,7 @@
             dismissible = opts.dismissible;
         }
 
+        // check style classes
         switch (type) {
             case "info":
                 classes.header.bg = $.toastDefaults.style.info || "bg-info";
@@ -101,6 +107,27 @@
 
             case "error":
                 classes.header.bg = $.toastDefaults.style.error || "bg-danger";
+                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                break;
+
+            case "primary":
+                classes.header.bg = $.toastDefaults.style.error || "bg-primary";
+                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                break;
+
+            case "secondary":
+                classes.header.bg =
+                    $.toastDefaults.style.error || "bg-secondary";
+                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                break;
+
+            case "light":
+                classes.header.bg = $.toastDefaults.style.error || "bg-light";
+                classes.header.fg = $.toastDefaults.style.error || "";
+                break;
+
+            case "dark":
+                classes.header.bg = $.toastDefaults.style.error || "bg-dark";
                 classes.header.fg = $.toastDefaults.style.error || "text-white";
                 break;
         }
