@@ -7,39 +7,46 @@
 (function ($) {
     const TOAST_CONTAINER_HTML = `<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>`;
 
+    // default option values
     $.toastDefaults = {
         position: "top-right",
         dismissible: true,
         stackable: true, // stackable & pauseDelayOnHover options are incompatible
-        pauseDelayOnHover: true,
+        pauseDelayOnHover: false,
         style: {
             toast: "",
             info: "",
             success: "",
             warning: "",
             error: "",
+            primary: "",
+            secondary: "",
+            light: "",
+            dark: ""
         },
     };
 
+    // This event is fired when the toast has finished being hidden from the user.
     $("body").on("hidden.bs.toast", ".toast", () => {
         $(this).remove();
     });
 
+    // unique id for each toast and snack
     let toastRunningCount = 1;
 
     function render(opts) {
         /** No container, create our own **/
         if (!$("#toast-container").length) {
             const position = [
-                "top-right",
-                "top-left",
-                "top-center",
-                "bottom-right",
-                "bottom-left",
-                "bottom-center",
-            ].includes($.toastDefaults.position)
-                ? $.toastDefaults.position
-                : "top-right";
+                    "top-right",
+                    "top-left",
+                    "top-center",
+                    "bottom-right",
+                    "bottom-left",
+                    "bottom-center",
+                ].includes($.toastDefaults.position) ?
+                $.toastDefaults.position :
+                "top-right";
 
             $("body").prepend(TOAST_CONTAINER_HTML);
             $("#toast-container").addClass(position);
@@ -61,9 +68,9 @@
         let subtitle = opts.subtitle;
         let content = opts.content;
         let img = opts.img;
-        let delayOrAutohide = opts.delay
-            ? `data-delay="${opts.delay}"`
-            : `data-autohide="false"`;
+        let delayOrAutohide = opts.delay ?
+            `data-delay="${opts.delay}"` :
+            `data-autohide="false"`;
         let hideAfter = ``;
         let dismissible = $.toastDefaults.dismissible;
         let globalToastStyles = $.toastDefaults.style.toast;
@@ -179,15 +186,20 @@
      * @param opts
      */
     $.toastInit = function (opts) {
-        const { position, dismissible, stackable, pauseDelayOnHover } = opts;
+        const {
+            position,
+            dismissible,
+            stackable,
+            pauseDelayOnHover
+        } = opts;
 
         // set values
-        $.toastDefaults.position = position ?? $.toastDefaults.position;
+        $.toastDefaults.position = position ? ? $.toastDefaults.position;
         $.toastDefaults.dismissible =
-            dismissible ?? $.toastDefaults.dismissible;
-        $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
+            dismissible ? ? $.toastDefaults.dismissible;
+        $.toastDefaults.stackable = stackable ? ? $.toastDefaults.stackable;
         $.toastDefaults.pauseDelayOnHover =
-            pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+            pauseDelayOnHover ? ? $.toastDefaults.pauseDelayOnHover;
     };
 
     /**
