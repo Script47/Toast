@@ -120,6 +120,12 @@
                     });
                 }
             });
+
+            $('.position-select').on('change', () => {
+                if($('#toast-container')) {
+                    $('#toast-container').remove();
+                }
+            });
         </script>
     </body>
 </html>
