@@ -88,10 +88,12 @@
                 };
             const IMG_URL = 'https://via.placeholder.com/20';
 
-            $.toastDefaults.position = 'bottom-center';
-            $.toastDefaults.dismissible = true;
-            $.toastDefaults.stackable = true;
-            $.toastDefaults.pauseDelayOnHover = true;
+            $.toastInit({
+                position: 'bottom-center',
+                dismissible: true,
+                stackable: true,
+                pauseDelayOnHover: false
+            });
 
             $('.snack-btn').click(() => {
                 let type = TYPES[Math.floor(Math.random() * TYPES.length)];
