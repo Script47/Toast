@@ -65,20 +65,28 @@
         <script src="../src/js/toast.js"></script>
 
         <script>
-            const TYPES = ['info', 'warning', 'success', 'error'],
-                TITLES = {
+            const TYPES = ['info', 'warning', 'success', 'error', 'primary', 'secondary', 'light', 'dark'];
+            const TITLES = {
                     'info': 'Notice!',
                     'success': 'Awesome!',
                     'warning': 'Watch Out!',
-                    'error': 'Doh!'
-                },
-                CONTENT = {
+                    'error': 'Doh!',
+                    'primary': 'Notice!',
+                    'secondary': 'Awesome!',
+                    'light': 'Watch Out!',
+                    'dark': 'Doh!'
+                };
+            const CONTENT = {
                     'info': 'Hello, world! This is a toast message.',
                     'success': 'The action has been completed.',
                     'warning': 'It\'s all about to go wrong',
-                    'error': 'It all went wrong.'
-                },
-                POSITION = ['top-right', 'top-left', 'top-center', 'bottom-right', 'bottom-left', 'bottom-center'];
+                    'error': 'It all went wrong.',
+                    'primary': 'Hello, world! This is a toast message.',
+                    'secondary': 'The action has been completed.',
+                    'light': 'It\'s all about to go wrong',
+                    'dark': 'It all went wrong.'
+                };
+            const IMG_URL = 'https://via.placeholder.com/20';
 
             $.toastDefaults.position = 'bottom-center';
             $.toastDefaults.dismissible = true;
