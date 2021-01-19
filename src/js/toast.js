@@ -188,7 +188,7 @@
 
         // hover delay action
         if ($.toastDefaults.pauseDelayOnHover) {
-            setTimeout(() => {
+            setTimeout(function () {
                 if (!paused) {
                     $(`#${id}`).toast("hide");
                 }
@@ -200,12 +200,12 @@
 
             $(document).on("mouseleave", "#" + id, () => {
                 const current = Math.floor(Date.now() / 1000),
-                    future = parseInt($(this).data("hideAfter"));
+                    future = parseInt($("#" + id).data("hideAfter"), 10);
 
                 paused = false;
 
                 if (current >= future) {
-                    $(this).toast("hide");
+                    $("#" + id).toast("hide");
                 }
             });
         }
