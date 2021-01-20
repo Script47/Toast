@@ -95,7 +95,8 @@
             case "success":
                 classes.header.bg =
                     $.toastDefaults.style.success || "bg-success";
-                classes.header.fg = $.toastDefaults.style.info || "text-white";
+                classes.header.fg =
+                    $.toastDefaults.style.success || "text-white";
                 break;
 
             case "warning":
@@ -173,8 +174,8 @@
 
             if (content) {
                 html += `<div class="toast-body">
-                            ${content}
-                        </div>`;
+                    ${content}
+                </div>`;
             }
         } else {
             // snack
@@ -215,12 +216,12 @@
 
             $(document).on("mouseleave", "#" + id, () => {
                 const current = Math.floor(Date.now() / 1000),
-                    future = parseInt($("#" + id).data("hideAfter"), 10);
+                    future = parseInt($(`#${id}`).data("hideAfter"), 10);
 
                 paused = false;
 
                 if (current >= future) {
-                    $("#" + id).toast("hide");
+                    $(`#${id}`).toast("hide");
                 }
             });
         }
