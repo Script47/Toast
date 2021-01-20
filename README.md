@@ -92,7 +92,7 @@ $.toastInit({
 
 ### Snack (customized toast)
 
-![snack-img](http://soya.moe:463/CDN/snack.png){: width="100%"}
+<center><img src="http://soya.moe:463/CDN/snack.png" width="100%"></center>
 
 ```js
 $.snack = function (type, content, delay) {
@@ -108,7 +108,7 @@ $.snack = function (type, content, delay) {
 
 ### Toast
 
-![toast-img](http://soya.moe:463/CDN/toast.png){: width="100%"}
+<center><img src="http://soya.moe:463/CDN/toast.png" width="100%"></center>
 
 ```js
 $.toast({
