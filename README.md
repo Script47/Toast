@@ -97,10 +97,10 @@ $.toastInit({
 ![snack-img](http://soya.moe:463/CDN/snack.png)
 
 ```js
-$.snack = function (type, title, delay) {
+$.snack = function (type, content, delay) {
     return render({
         type,
-        title,
+        content,
         delay,
     });
 };

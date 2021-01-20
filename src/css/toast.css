@@ -61,3 +61,8 @@
     border-bottom-left-radius: calc(0.25rem - 1px);
     border-bottom-right-radius: calc(0.25rem - 1px);
 }
+
+.toast-container > .toast > .toast-body.snack-rounded {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
