@@ -43,6 +43,13 @@ $.toastDefaults = {
 
 ### Initializing Global Variables
 
+| Option Name                       | Type    | Description                                                                                                                            | Values                                                                                                                                  |
+| :-------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| $.toastDefaults.position          | String  | Set toast & snack position from the container(or viewport).                                                                            | 'top-right' \| 'top-center' \| 'top-left' \| 'bottom-right' \| 'bottom-center' \| 'bottom-left' (middle option currently not-supported) |
+| $.toastDefaults.dismissible       | Boolean | Enables toast & snack dismissible with dismiss button.                                                                                 | true \| false                                                                                                                           |
+| $.toastDefaults.stackable         | Boolean | Enables toast & snack stackable. (not compatible with 'pauseDelayOnHover' option.)                                                     | true \| false                                                                                                                           |
+| $.toastDefaults.pauseDelayOnHover | Boolean | Enables toast & snack to stop auto-hide when hover mouse pointer on specific toast or snack. (not compatible with 'stackable' option.) | true \| false                                                                                                                           |
+
 ```js
 // plugin initializing function
 $.toastInit = function (opts) {
