@@ -114,9 +114,25 @@ $.toast({
 
 ---
 
-### Contributing
+### Live Example (from Netlify)
+
+[Live Demo](https://romantic-wozniak-01d0b4.netlify.app/)
+
+![live-demo](http://soya.moe:463/CDN/live-demo.png)
+
+---
+
+## Contributing (to original REPO or this fork)
 
 Feel free to contribute in any of the ways outlined:
 
 -   Submit issues/pull requests
 -   Tell us how you're using this plugin in _your_ project
+
+[@Script47/Toast](https://github.com/Script47/Toast)
+
+### Contributors
+
+Thanks to all contributors.
+
+[@yuiopna](https://github.com/yuiopna), [@shd5632](https://github.com/shd5632), [@Phudal](https://github.com/Phudal)
