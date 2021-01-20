@@ -13,6 +13,14 @@ As of **Bootstrap 4.2**, [toasts](https://getbootstrap.com/docs/4.2/components/t
 
 ## Updates
 
+As Bootstrap was updated to version 5.0(beta), the usage of the toast component changed. So, we fixed some code that was not compatible with Bootstrap 4 and added some new features.
+
+-   Bootstrap Core updated to 5.0(beta)
+-   Deleted incompatible codes and fixed
+-   jQuery updated to latest version
+-   Icon and more background colors are supported
+-   Minor code errors and mistakes fixed
+
 ## Usage
 
 ### Global Variables (or default values)
