@@ -11,26 +11,59 @@
 
 As of **Bootstrap 4.2**, [toasts](https://getbootstrap.com/docs/4.2/components/toasts/) have been introduced and the aim of this plugin is to make them easier to use. (original)
 
-### Usage
+## Updates
 
-#### Gloabls
+## Usage
+
+### Global Variables (or default values)
 
 Modify the global variables to apply specific rules/styles to all your toasts.
 
-```javascript
+```js
+// default option values
 $.toastDefaults = {
-    position: "top-right" /** top-left/top-right/top-center/bottom-left/bottom-right/bottom-center - Where the toast will show up **/,
-    dismissible: true /** true/false - If you want to show the button to dismiss the toast manually **/,
-    stackable: true /** true/false - If you want the toasts to be stackable **/,
-    pauseDelayOnHover: true /** true/false - If you want to pause the delay of toast when hovering over the toast **/,
+    position: "top-right",
+    dismissible: true,
+    stackable: true, // stackable & pauseDelayOnHover options are incompatible
+    pauseDelayOnHover: false,
     style: {
-        toast: "" /** Classes you want to apply separated my a space to each created toast element (.toast) **/,
-        info: "" /** Classes you want to apply separated my a space to modify the "info" type style  **/,
-        success: "" /** Classes you want to apply separated my a space to modify the "success" type style  **/,
-        warning: "" /** Classes you want to apply separated my a space to modify the "warning" type style  **/,
-        error: "" /** Classes you want to apply separated my a space to modify the "error" type style  **/,
+        // user custom style classname
+        toast: "",
+        info: "",
+        success: "",
+        warning: "",
+        error: "",
+        primary: "",
+        secondary: "",
+        light: "",
+        dark: "",
     },
 };
+```
+
+### Initializing Global Variables
+
+```js
+// plugin initializing function
+$.toastInit = function (opts) {
+    const { position, dismissible, stackable, pauseDelayOnHover } = opts;
+
+    // set values (using ES6 nullish coalescing)
+    $.toastDefaults.position = position ?? $.toastDefaults.position;
+    $.toastDefaults.dismissible = dismissible ?? $.toastDefaults.dismissible;
+    $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
+    $.toastDefaults.pauseDelayOnHover = pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+};
+```
+
+```js
+// initializing example in sample.html
+$.toastInit({
+    position: "bottom-center",
+    dismissible: true,
+    stackable: true, // stackable & pauseDelayOnHover options are incompatible
+    pauseDelayOnHover: false,
+});
 ```
 
 #### Snack
