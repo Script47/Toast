@@ -111,25 +111,28 @@
                 break;
 
             case "primary":
-                classes.header.bg = $.toastDefaults.style.error || "bg-primary";
-                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                classes.header.bg =
+                    $.toastDefaults.style.primary || "bg-primary";
+                classes.header.fg =
+                    $.toastDefaults.style.primary || "text-white";
                 break;
 
             case "secondary":
                 classes.header.bg =
-                    $.toastDefaults.style.error || "bg-secondary";
-                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                    $.toastDefaults.style.secondary || "bg-secondary";
+                classes.header.fg =
+                    $.toastDefaults.style.secondary || "text-white";
                 break;
 
             case "light":
-                classes.header.bg = $.toastDefaults.style.error || "bg-light";
+                classes.header.bg = $.toastDefaults.style.light || "bg-light";
                 classes.header.fg =
-                    $.toastDefaults.style.error || "text-secondary";
+                    $.toastDefaults.style.light || "text-secondary";
                 break;
 
             case "dark":
-                classes.header.bg = $.toastDefaults.style.error || "bg-dark";
-                classes.header.fg = $.toastDefaults.style.error || "text-white";
+                classes.header.bg = $.toastDefaults.style.dark || "bg-dark";
+                classes.header.fg = $.toastDefaults.style.dark || "text-white";
                 break;
         }
 
