@@ -175,7 +175,7 @@
 
         // check stackable option
         if (!$.toastDefaults.stackable) {
-            toastContainer.find(".toast").each(() => {
+            toastContainer.find(".toast").each(function () {
                 $(this).remove();
             });
 
