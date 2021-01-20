@@ -38,16 +38,7 @@
         /** No container, create our own **/
         if (!$("#toast-container").length) {
             // if not exists
-            const position = [
-                "top-right",
-                "top-left",
-                "top-center",
-                "bottom-right",
-                "bottom-left",
-                "bottom-center",
-            ].includes($.toastDefaults.position)
-                ? $.toastDefaults.position
-                : "top-right";
+            const position = ["top-right", "top-left", "top-center", "bottom-right", "bottom-left", "bottom-center"].includes($.toastDefaults.position) ? $.toastDefaults.position : "top-right";
 
             $("body").prepend(TOAST_CONTAINER_HTML);
             $("#toast-container").addClass(position);
@@ -73,9 +64,7 @@
         let content = opts.content;
         let img = opts.img;
         let icon = opts.icon;
-        let delayOrAutohide = opts.delay
-            ? `data-bs-delay="${opts.delay}"`
-            : `data-bs-autohide="false"`;
+        let delayOrAutohide = opts.delay ? `data-bs-delay="${opts.delay}"` : `data-bs-autohide="false"`;
         let hideAfter = ``;
         let dismissible = $.toastDefaults.dismissible;
         let globalToastStyles = $.toastDefaults.style.toast;
@@ -93,16 +82,13 @@
                 break;
 
             case "success":
-                classes.header.bg =
-                    $.toastDefaults.style.success || "bg-success";
+                classes.header.bg = $.toastDefaults.style.success || "bg-success";
                 classes.header.fg = $.toastDefaults.style.info || "text-white";
                 break;
 
             case "warning":
-                classes.header.bg =
-                    $.toastDefaults.style.warning || "bg-warning";
-                classes.header.fg =
-                    $.toastDefaults.style.warning || "text-white";
+                classes.header.bg = $.toastDefaults.style.warning || "bg-warning";
+                classes.header.fg = $.toastDefaults.style.warning || "text-white";
                 break;
 
             case "error":
@@ -116,14 +102,13 @@
                 break;
 
             case "secondary":
-                classes.header.bg =
-                    $.toastDefaults.style.error || "bg-secondary";
+                classes.header.bg = $.toastDefaults.style.error || "bg-secondary";
                 classes.header.fg = $.toastDefaults.style.error || "text-white";
                 break;
 
             case "light":
                 classes.header.bg = $.toastDefaults.style.error || "bg-light";
-                classes.header.fg = $.toastDefaults.style.error || "";
+                classes.header.fg = $.toastDefaults.style.error || "text-secondary";
                 break;
 
             case "dark":
@@ -135,9 +120,7 @@
         // check delay options
         if ($.toastDefaults.pauseDelayOnHover && opts.delay) {
             delayOrAutohide = `data-bs-autohide="false"`;
-            hideAfter = `data-hide-after="${
-                Math.floor(Date.now() / 1000) + opts.delay / 1000
-            }"`;
+            hideAfter = `data-hide-after="${Math.floor(Date.now() / 1000) + opts.delay / 1000}"`;
         }
 
         // prepare html
@@ -145,9 +128,7 @@
         html += `<div class="toast-header ${classes.header.bg} ${classes.header.fg}">`;
 
         if (img) {
-            html += `<img src="${img.src}" class="rounded me-2 ${
-                img.class || ""
-            }" alt="${img.alt || "Toast Image"}">`;
+            html += `<img src="${img.src}" class="rounded me-2 ${img.class || ""}" alt="${img.alt || "Toast Image"}">`;
         }
 
         if (icon) {
@@ -222,11 +203,9 @@
 
         // set values
         $.toastDefaults.position = position ?? $.toastDefaults.position;
-        $.toastDefaults.dismissible =
-            dismissible ?? $.toastDefaults.dismissible;
+        $.toastDefaults.dismissible = dismissible ?? $.toastDefaults.dismissible;
         $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
-        $.toastDefaults.pauseDelayOnHover =
-            pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+        $.toastDefaults.pauseDelayOnHover = pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
 
         // check incompatible variables
         if ($.toastDefaults.stackable) {
