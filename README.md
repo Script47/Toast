@@ -63,11 +63,20 @@ $.toastDefaults = {
 $.toastInit = function (opts) {
     const { position, dismissible, stackable, pauseDelayOnHover } = opts;
 
-    // set values (using ES6 nullish coalescing)
+    // set values
     $.toastDefaults.position = position ?? $.toastDefaults.position;
-    $.toastDefaults.dismissible = dismissible ?? $.toastDefaults.dismissible;
+    $.toastDefaults.dismissible =
+        dismissible ?? $.toastDefaults.dismissible;
     $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
-    $.toastDefaults.pauseDelayOnHover = pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+    $.toastDefaults.pauseDelayOnHover =
+        pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+
+    // check incompatible variables
+    if ($.toastDefaults.stackable) {
+        $.toastDefaults.pauseDelayOnHover = false;
+    } else {
+        $.toastDefaults.pauseDelayOnHover = true;
+    }
 };
 ```
 
@@ -130,7 +139,7 @@ $.toast({
 
 ---
 
-## Contributing (to original REPO or this fork)
+## Contributing
 
 Feel free to contribute in any of the ways outlined:
 
