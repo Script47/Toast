@@ -227,6 +227,13 @@
         $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
         $.toastDefaults.pauseDelayOnHover =
             pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+
+        // check incompatible variables
+        if ($.toastDefaults.stackable) {
+            $.toastDefaults.pauseDelayOnHover = false;
+        } else {
+            $.toastDefaults.pauseDelayOnHover = true;
+        }
     };
 
     /**
