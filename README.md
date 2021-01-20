@@ -65,11 +65,9 @@ $.toastInit = function (opts) {
 
     // set values
     $.toastDefaults.position = position ?? $.toastDefaults.position;
-    $.toastDefaults.dismissible =
-        dismissible ?? $.toastDefaults.dismissible;
+    $.toastDefaults.dismissible = dismissible ?? $.toastDefaults.dismissible;
     $.toastDefaults.stackable = stackable ?? $.toastDefaults.stackable;
-    $.toastDefaults.pauseDelayOnHover =
-        pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
+    $.toastDefaults.pauseDelayOnHover = pauseDelayOnHover ?? $.toastDefaults.pauseDelayOnHover;
 
     // check incompatible variables
     if ($.toastDefaults.stackable) {
