@@ -73,36 +73,46 @@ $.toastInit({
 });
 ```
 
-#### Snack
+---
 
-A "snack" is a bitesized "toast".
+### Snack (customized toast)
 
-```javascript
-$.snack(type, title, delay);
+![snack-img](http://soya.moe:463/CDN/snack.png)
+
+```js
+$.snack = function (type, title, delay) {
+    return render({
+        type,
+        title,
+        delay,
+    });
+};
 ```
 
-<img src="https://i.gyazo.com/165671094c4c956bf89a05f4d9f089b1.png">
+**Note:** The final argument `delay` is omittable (optional). If omitted, the toast will remain forever.
 
-**Note:** The final argument `delay` is omitable. If omitted, the toast will remain forever.
+### Toast
 
-#### Toast
+![toast-img](http://soya.moe:463/CDN/toast.png)
 
-```javascript
+```js
 $.toast({
-    type: "info",
-    title: "Notice!",
+    type: type,
+    title: title,
     subtitle: "11 mins ago",
-    content: "Hello, world! This is a toast message.",
+    content: content,
     delay: 5000,
+    icon: "fab fa-github", // font-awesome6 icon class
     img: {
-        src: "https://via.placeholder.com/20",
-        class: "rounded-0" /**  Classes you want to apply separated my a space to modify the image **/,
+        src: IMG_URL,
         alt: "Image",
     },
 });
 ```
 
-<img src="https://i.gyazo.com/63c444e180d5d18ef8a71df2969cc0cc.png">
+**Note:** The 'icon' and 'img' options are compatible but not recommended to use them together.
+
+---
 
 ### Contributing
 
