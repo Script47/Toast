@@ -125,7 +125,7 @@ $.toast({
 });
 ```
 
-**Note:** The 'icon' and 'img' options are compatible but not recommended to use them together.
+**Note:** The `icon` and `img` options are compatible but not recommended to use them together.
 
 ---
 
