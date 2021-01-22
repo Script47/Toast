@@ -1,211 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Bootstrap 5.0 Core CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../dist/toast.min.css ">
+        <!-- Third party plugins & Custom css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+        <link rel="stylesheet" href="../src/css/toast.css ">
+        <title>Toast v2</title>
+    </head>
 
-    <title>Toast</title>
-</head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Bootstrap Toast v2.0.0</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0"></ul>
+                <a class="btn btn-outline-success git-link" href="https://github.com/SoyaNyan/Toast" target="_blank"><i class="fab fa-github"></i> Git Repository</a>
+            </div>
+            </div>
+        </nav>
 
-<body>
-<div class="jumbotron bg-primary text-white jumbotron-fluid">
-    <div class="container">
-        <h1 class="text-center display-4">Toast</h1>
-        <h3 class="text-center">A jQuery plugin for Bootstrap 4.2+</h3>
-    </div>
-</div>
+        <main class="container mt-5">
+            <div class="starter-template text-center py-5 px-3">
+                <h1>Bootstrap 5.0 Toast Example</h1>
+                <p class="lead">The easest way to use toast, the bootstrap component.</p>
+            </div>
+            <div class="container-fluid text-center">
+                <div class="row justify-content-center">
+                    <div class="col-5">
+                        <div class="input-group">
+                            <select class="form-select position-select" id="toast-position">
+                                <option value="top-right" selected>Top-right</option>
+                                <option value="top-left">Top-left</option>
+                                <option value="top-center">Top-center</option>
+                                <option value="bottom-right">Bottom-right</option>
+                                <option value="bottom-left">Bottom-left</option>
+                                <option value="bottom-center">Bottom-center</option>
+                            </select>
+                            <button class="btn btn-info text-white snack-btn" type="button"><strong>Snack</strong></button>
+                            <button class="btn btn-primary toast-btn" type="button"><strong>Toast</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- github repo widget -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-6 text-center">
+                    <iframe src="http://tylerlh.github.com/github-latest-commits-widget/?username=SoyaNyan&repo=Toast&limit=LIMIT" allowtransparency="true" frameborder="0" scrolling="no" width="502px" height="252px"></iframe>
+                </div>
+            </div>
+        </main><!-- /.container -->
 
-<div class="container-fluid text-center">
-    <button class="snack btn btn-primary">Snack</button>
-    <button class="toast-btn btn btn-primary">Toast</button>
-</div>
+        <!-- jQuery & Boostrap Core JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+        <script src="../src/js/toast.js"></script>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac malesuada ipsum. Vestibulum in nunc sed erat
-    facilisis lacinia in vitae lacus. Curabitur ornare nulla non urna posuere cursus. Aliquam in molestie augue, ac
-    vehicula est. Pellentesque eget massa nibh. Nulla maximus quam laoreet finibus dictum. Aliquam pretium porta
-    malesuada. Cras pretium odio massa, non blandit ligula maximus at. Proin sollicitudin felis sollicitudin turpis
-    mattis ultricies.</p>
+        <script>
+            const TYPES = ['info', 'warning', 'success', 'error', 'primary', 'secondary', 'light', 'dark'];
+            const TITLES = {
+                    'info': 'Notice!',
+                    'success': 'Awesome!',
+                    'warning': 'Watch Out!',
+                    'error': 'Doh!',
+                    'primary': 'Notice!',
+                    'secondary': 'Awesome!',
+                    'light': 'Watch Out!',
+                    'dark': 'Doh!'
+                };
+            const CONTENT = {
+                    'info': 'Hello, world! This is a toast message.',
+                    'success': 'The action has been completed.',
+                    'warning': 'It\'s all about to go wrong',
+                    'error': 'It all went wrong.',
+                    'primary': 'Hello, world! This is a toast message.',
+                    'secondary': 'The action has been completed.',
+                    'light': 'It\'s all about to go wrong',
+                    'dark': 'It all went wrong.'
+                };
+            const IMG_URL = 'https://via.placeholder.com/20';
 
-<p>Donec rutrum, magna ut lacinia aliquam, dui justo consequat eros, non feugiat lectus ligula non lacus. Donec
-    consequat pharetra posuere. Pellentesque malesuada sodales erat bibendum condimentum. Ut porttitor dignissim semper.
-    Quisque sed urna venenatis, sollicitudin tellus vitae, ultricies justo. Suspendisse potenti. Donec in sapien
-    molestie, pharetra nisl sit amet, pulvinar erat. Donec ultricies mauris enim, non vehicula sapien malesuada eget.
-    Aliquam tristique accumsan magna, eget facilisis nulla convallis sed. Fusce malesuada ipsum sem, eget finibus arcu
-    euismod id. Mauris fringilla libero felis, vitae iaculis ante vehicula vitae. Pellentesque ullamcorper semper
-    vestibulum. In rutrum at sapien et tincidunt.</p>
-
-<p>Aliquam mauris arcu, euismod vel porta in, consequat in augue. Integer volutpat tincidunt arcu, et iaculis est
-    egestas in. Nam nibh neque, consequat quis dolor et, mollis viverra erat. Duis dapibus lacus et pharetra rutrum.
-    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tempor nibh sit amet eros
-    commodo tristique. Maecenas maximus nisi sit amet tempus venenatis.</p>
-
-<p>Mauris hendrerit neque eget sapien efficitur, ac hendrerit lorem ultrices. Praesent nec lorem ac tellus viverra
-    sollicitudin posuere in mauris. Cras vulputate arcu at ligula condimentum semper. Fusce erat justo, luctus non
-    interdum vitae, rhoncus sed lorem. Pellentesque et nisi vel felis finibus efficitur eu tristique ex. Aenean ac
-    lacinia lectus. Vestibulum augue ante, maximus at nisi vel, eleifend convallis nunc. Vivamus tempor arcu neque, non
-    auctor enim vehicula et. Integer viverra faucibus consectetur. Maecenas id vestibulum velit, a mollis nulla. Cras
-    vitae velit orci. Nunc volutpat urna quam, non aliquet nisl placerat ac.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<div class="container-fluid text-center">
-    <button class="snack btn btn-primary">Snack</button>
-    <button class="toast-btn btn btn-primary">Toast</button>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="../dist/toast.min.js"></script>
-
-<script>
-    const TYPES = ['info', 'warning', 'success', 'error'],
-        TITLES = {
-            'info': 'Notice!',
-            'success': 'Awesome!',
-            'warning': 'Watch Out!',
-            'error': 'Doh!'
-        },
-        CONTENT = {
-            'info': 'Hello, world! This is a toast message.',
-            'success': 'The action has been completed.',
-            'warning': 'It\'s all about to go wrong',
-            'error': 'It all went wrong.'
-        },
-        POSITION = ['top-right', 'top-left', 'top-center', 'bottom-right', 'bottom-left', 'bottom-center'];
-
-    $.toastDefaults.position = 'bottom-center';
-    $.toastDefaults.dismissible = true;
-    $.toastDefaults.stackable = true;
-    $.toastDefaults.pauseDelayOnHover = true;
-
-    $('.snack').click(function () {
-        var type = TYPES[Math.floor(Math.random() * TYPES.length)],
-            content = CONTENT[type];
-
-        $.snack(type, content);
-    });
-
-    $('.toast-btn').click(function () {
-        var rng = Math.floor(Math.random() * 2) + 1,
-            type = TYPES[Math.floor(Math.random() * TYPES.length)],
-            title = TITLES[type],
-            content = CONTENT[type];
-
-        if (rng === 1) {
-            $.toast({
-                type: type,
-                title: title,
-                subtitle: '11 mins ago',
-                content: content,
-                delay: 5000
+            $.toastInit({
+                position: 'bottom-center',
+                dismissible: true,
+                stackable: true,
+                pauseDelayOnHover: false
             });
-        } else {
-            $.toast({
-                type: type,
-                title: title,
-                subtitle: '11 mins ago',
-                content: content,
-                delay: 5000,
-                img: {
-                    src: 'https://via.placeholder.com/20',
-                    alt: 'Image'
+
+            $('.snack-btn').click(() => {
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)];
+                let content = CONTENT[type];
+
+                $.toastInit({
+                    position: $('#toast-position').val()
+                });
+                $.snack(type, content, 5000);
+            });
+
+            $('.toast-btn').click(() => {
+                let rng = Math.floor(Math.random() * 2) + 1;
+                let type = TYPES[Math.floor(Math.random() * TYPES.length)];
+                let title = TITLES[type];
+                let content = CONTENT[type];
+
+                $.toastInit({
+                    position: $('#toast-position').val()
+                });
+                if (rng === 1) {
+                    $.toast({
+                        type: type,
+                        title: title,
+                        subtitle: '11 mins ago',
+                        content: content,
+                        delay: 5000,
+                        icon: 'fab fa-github'
+                    });
+                } else {
+                    $.toast({
+                        type: type,
+                        title: title,
+                        subtitle: '11 mins ago',
+                        content: content,
+                        delay: 5000,
+                        img: {
+                            src: IMG_URL,
+                            alt: 'Image'
+                        }
+                    });
                 }
             });
-        }
-    });
-</script>
-</body>
 
+            $('.position-select').on('change', () => {
+                if($('#toast-container')) {
+                    $('#toast-container').remove();
+                }
+            });
+        </script>
+    </body>
 </html>
