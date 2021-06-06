@@ -3,6 +3,8 @@
 * [About](#about)
 * [Usage](#usage)
     * [Live Example](https://jsfiddle.net/47n5ygth/)
+    * [Live Demo Using Bootstrap 5](https://demo.halimlardjane.com/toast/)
+* [Contributing](#contributing)
 * [Contributing](#contributing)
 
 ### About
