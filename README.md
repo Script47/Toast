@@ -1,8 +1,10 @@
-# Toast - A Bootstrap 4.2+ jQuery plugin
+# Toast - A Bootstrap 5.0+ jQuery plugin
 
 * [About](#about)
 * [Usage](#usage)
     * [Live Example](https://jsfiddle.net/47n5ygth/)
+    * [Live Demo Using Bootstrap 5](https://demo.halimlardjane.com/toast/)
+* [Contributing](#contributing)
 * [Contributing](#contributing)
 
 ### About
@@ -21,6 +23,7 @@ $.toastDefaults = {
     dismissible: true, /** true/false - If you want to show the button to dismiss the toast manually **/
     stackable: true, /** true/false - If you want the toasts to be stackable **/
     pauseDelayOnHover: true, /** true/false - If you want to pause the delay of toast when hovering over the toast **/
+    width: 500, /** Integer - if you want to custom the size of the toast */
     style: {
         toast: '', /** Classes you want to apply separated my a space to each created toast element (.toast) **/
         info: '', /** Classes you want to apply separated my a space to modify the "info" type style  **/
