@@ -1,14 +1,14 @@
 {
-    "name": "bs4-toast",
+    "name": "bs5-toast",
     "version": "1.2.0",
-    "description": "Toast - A Bootstrap 4.2+ jQuery plugin for the toast component",
+    "description": "Toast - A Bootstrap 5.0+ jQuery plugin for the toast component",
     "main": "dist/toast.min.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Script47/Toast.git"
     },
     "keywords": [
-        "bootstrap-4",
+        "bootstrap-5",
         "bootstrap",
         "toast",
         "toast-notifications",
@@ -22,7 +22,7 @@
     },
     "homepage": "https://github.com/Script47/Toast",
     "dependencies": {
-        "bootstrap": ">=4.2.0",
+        "bootstrap": ">=5.0.0",
         "jquery": ">=1.9.1"
     },
     "devDependencies": {}

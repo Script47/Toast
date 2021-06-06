@@ -1,211 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../dist/toast.min.css ">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Toast</title>
+    <!-- CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="../dist/toast.min.css" rel="stylesheet" id="theme">
+    <style>
+        .btn {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
-<div class="jumbotron bg-primary text-white jumbotron-fluid">
-    <div class="container">
-        <h1 class="text-center display-4">Toast</h1>
-        <h3 class="text-center">A jQuery plugin for Bootstrap 4.2+</h3>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <h1 class="display-2">Toast</h1>
+            <h1 class="display-5">A jQuery plugin for Bootstrap 5.0+</h1>
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button type="button" class="btn btn-sm btn-info" id="toast1">Info (top-right)</button>
+            <button type="button" class="btn btn-sm btn-success" id="toast2">Success (top-left)</button>
+            <button type="button" class="btn btn-sm btn-warning" id="toast3">Warning (top-center)</button>
+            <button type="button" class="btn btn-sm btn-danger" id="toast4">Danger (bottom-right)</button>
+            <button type="button" class="btn btn-sm btn-primary" id="toast5">Primary (bottom-left)</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="toast6">Secondary bottom-center</button>
+            <button type="button" class="btn btn-sm btn-light" id="toast7">Light</button>
+            <button type="button" class="btn btn-sm btn-dark" id="toast8">Dark</button>
+
+            <hr>
+
+            <button type="button" class="btn btn-sm btn-info" id="toast9">Info (with a long text)</button>
+            <button type="button" class="btn btn-sm btn-success" id="toast10">Success (custom width: 250px)</button>
+            <button type="button" class="btn btn-sm btn-warning" id="toast11">Warning (custom width: 500px)</button>
+
+            <button type="button" class="btn btn-sm btn-primary" id="toast12">Snack</button>
+            <button type="button" class="btn btn-sm btn-primary" id="toast13">Snack (custom width)</button>
+
+        </div>
     </div>
 </div>
-
-<div class="container-fluid text-center">
-    <button class="snack btn btn-primary">Snack</button>
-    <button class="toast-btn btn btn-primary">Toast</button>
-</div>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac malesuada ipsum. Vestibulum in nunc sed erat
-    facilisis lacinia in vitae lacus. Curabitur ornare nulla non urna posuere cursus. Aliquam in molestie augue, ac
-    vehicula est. Pellentesque eget massa nibh. Nulla maximus quam laoreet finibus dictum. Aliquam pretium porta
-    malesuada. Cras pretium odio massa, non blandit ligula maximus at. Proin sollicitudin felis sollicitudin turpis
-    mattis ultricies.</p>
-
-<p>Donec rutrum, magna ut lacinia aliquam, dui justo consequat eros, non feugiat lectus ligula non lacus. Donec
-    consequat pharetra posuere. Pellentesque malesuada sodales erat bibendum condimentum. Ut porttitor dignissim semper.
-    Quisque sed urna venenatis, sollicitudin tellus vitae, ultricies justo. Suspendisse potenti. Donec in sapien
-    molestie, pharetra nisl sit amet, pulvinar erat. Donec ultricies mauris enim, non vehicula sapien malesuada eget.
-    Aliquam tristique accumsan magna, eget facilisis nulla convallis sed. Fusce malesuada ipsum sem, eget finibus arcu
-    euismod id. Mauris fringilla libero felis, vitae iaculis ante vehicula vitae. Pellentesque ullamcorper semper
-    vestibulum. In rutrum at sapien et tincidunt.</p>
-
-<p>Aliquam mauris arcu, euismod vel porta in, consequat in augue. Integer volutpat tincidunt arcu, et iaculis est
-    egestas in. Nam nibh neque, consequat quis dolor et, mollis viverra erat. Duis dapibus lacus et pharetra rutrum.
-    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tempor nibh sit amet eros
-    commodo tristique. Maecenas maximus nisi sit amet tempus venenatis.</p>
-
-<p>Mauris hendrerit neque eget sapien efficitur, ac hendrerit lorem ultrices. Praesent nec lorem ac tellus viverra
-    sollicitudin posuere in mauris. Cras vulputate arcu at ligula condimentum semper. Fusce erat justo, luctus non
-    interdum vitae, rhoncus sed lorem. Pellentesque et nisi vel felis finibus efficitur eu tristique ex. Aenean ac
-    lacinia lectus. Vestibulum augue ante, maximus at nisi vel, eleifend convallis nunc. Vivamus tempor arcu neque, non
-    auctor enim vehicula et. Integer viverra faucibus consectetur. Maecenas id vestibulum velit, a mollis nulla. Cras
-    vitae velit orci. Nunc volutpat urna quam, non aliquet nisl placerat ac.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<p>Nunc porta eu mi eget dignissim. Pellentesque hendrerit odio nec risus facilisis pulvinar. Nam laoreet a libero id
-    commodo. Vivamus elementum enim nec tincidunt suscipit. Vestibulum a neque molestie, imperdiet turpis sed,
-    ullamcorper ex. Integer et pharetra nulla. Maecenas egestas ut augue non sodales. Nunc aliquet a mauris id
-    consectetur. Integer tristique ligula eu pellentesque vulputate. Nunc pellentesque eros a ipsum mattis, finibus
-    maximus libero commodo. Cras in posuere lorem, non porttitor diam. Phasellus lacus augue, tempus at turpis ac,
-    malesuada eleifend orci. Etiam commodo elementum vehicula. Sed et enim at urna pretium porttitor vel at lectus.
-    Nulla consectetur nisl vitae nisl iaculis vulputate. Donec ac nisi cursus, pharetra augue id, eleifend augue.</p>
-
-<div class="container-fluid text-center">
-    <button class="snack btn btn-primary">Snack</button>
-    <button class="toast-btn btn btn-primary">Toast</button>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
 <script src="../dist/toast.min.js"></script>
-
 <script>
-    const TYPES = ['info', 'warning', 'success', 'error'],
-        TITLES = {
-            'info': 'Notice!',
-            'success': 'Awesome!',
-            'warning': 'Watch Out!',
-            'error': 'Doh!'
-        },
-        CONTENT = {
-            'info': 'Hello, world! This is a toast message.',
-            'success': 'The action has been completed.',
-            'warning': 'It\'s all about to go wrong',
-            'error': 'It all went wrong.'
-        },
-        POSITION = ['top-right', 'top-left', 'top-center', 'bottom-right', 'bottom-left', 'bottom-center'];
-
-    $.toastDefaults.position = 'bottom-center';
-    $.toastDefaults.dismissible = true;
-    $.toastDefaults.stackable = true;
-    $.toastDefaults.pauseDelayOnHover = true;
-
-    $('.snack').click(function () {
-        var type = TYPES[Math.floor(Math.random() * TYPES.length)],
-            content = CONTENT[type];
-
-        $.snack(type, content);
-    });
-
-    $('.toast-btn').click(function () {
-        var rng = Math.floor(Math.random() * 2) + 1,
-            type = TYPES[Math.floor(Math.random() * TYPES.length)],
-            title = TITLES[type],
-            content = CONTENT[type];
-
-        if (rng === 1) {
+    $(function() {
+        /**
+         *
+         */
+        $('#toast1').click(function () {
             $.toast({
-                type: type,
-                title: title,
+                type: 'info',
+                title: 'Notice!',
                 subtitle: '11 mins ago',
-                content: content,
-                delay: 5000
-            });
-        } else {
-            $.toast({
-                type: type,
-                title: title,
-                subtitle: '11 mins ago',
-                content: content,
+                content: 'Hello, world! This is a toast message.',
                 delay: 5000,
                 img: {
                     src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
                     alt: 'Image'
                 }
             });
-        }
+        });
+
+        /**
+         *
+         */
+        $('#toast2').click(function () {
+            $.toast({
+                type: 'success',
+                title: 'Success!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                delay: 3000,
+                position: 'top-left',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast3').click(function () {
+            $.toast({
+                type: 'warning',
+                title: 'Warning!',
+                subtitle: '21 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                delay: 2000,
+                position: 'top-center',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast4').click(function () {
+            $.toast({
+                type: 'error',
+                title: 'Error!',
+                subtitle: '21 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                delay: 2000,
+                position: 'bottom-right',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast5').click(function () {
+            $.toast({
+                type: 'primary',
+                title: 'Notice!',
+                subtitle: '21 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                delay: 2000,
+                position: 'bottom-left',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast6').click(function () {
+            $.toast({
+                type: 'secondary',
+                title: 'Secondary!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                delay: 3000,
+                position: 'bottom-center',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast7').click(function () {
+            $.toast({
+                type: 'light',
+                title: 'Light!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast8').click(function () {
+            $.toast({
+                type: 'dark',
+                title: 'Dark!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast9').click(function () {
+            $.toast({
+                type: 'info',
+                title: 'Notice!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast10').click(function () {
+            $.toast({
+                type: 'success',
+                title: 'Notice!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world!',
+                width: 250,
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast11').click(function () {
+            $.toast({
+                type: 'warning',
+                title: 'Notice!',
+                subtitle: '11 mins ago',
+                content: 'Hello, world! This is a toast message.',
+                width: 500,
+                img: {
+                    src: 'https://via.placeholder.com/20',
+                    class: 'rounded-0', /**  Classes you want to apply separated my a space to modify the image **/
+                    alt: 'Image'
+                }
+            });
+        });
+
+        /**
+         *
+         */
+        $('#toast12').click(function () {
+            $.snack('primary', 'Notice', 3000);
+        });
+
+        /**
+         *
+         */
+        $('#toast13').click(function () {
+            $.snack('primary', 'Hi!', 3000, 200);
+        });
+
     });
 </script>
 </body>
-
 </html>
+
